@@ -118,13 +118,14 @@ const Login = () => {
             <rect x="427.49994" y="107.5" width="2" height="304" fill="#ccc" />
           </svg>
         </div>
+
         <div className="login__text">
           <div className="back__button">
             <a
               className="inline-block rounded-full border-2 border-red-600 p-4 text-red-600 hover:bg-red-600 hover:text-white focus:outline-none focus:ring active:bg-red-500"
-              href="#"
+              href="instagram.com"
             >
-              <span className="sr-only"> Download </span>
+              <span className="sr-only"> Kembali </span>
 
               <svg
                 className="w-6 h-6"
@@ -142,9 +143,77 @@ const Login = () => {
               </svg>
             </a>
           </div>
-          <div className="login__title mt-10 font-black flex justify-center">
-            <p className="text-4xl">Selamat Datang di SiTTel</p>
+
+          <div className="login__header mt-10">
+            <p className="login__title text-5xl pb-5 font-black flex justify-center">
+              Selamat Datang
+            </p>
+            <p className="login__title text-5xl pb-5 font-black flex justify-center">
+              di SiTTel
+            </p>
+            <p className="login__caption text-gray-500 flex justify-center">
+              Silahkan Masukkan Alamat Email dan Password Anda
+            </p>
           </div>
+
+          <form action="#" className="mx-auto pt-16 mb-0 max-w-lg space-y-4">
+            <div className="form__email">
+              <label htmlFor="email" className="sr-only">
+                {" "}
+                Email{" "}
+              </label>
+
+              <div className="relative">
+                <input
+                  type="email"
+                  className="w-full rounded-xl text-black border border-gray-200 p-5 shadow-sm"
+                  placeholder="Alamat Email"
+                />
+              </div>
+            </div>
+
+            <div className="form__password">
+              <label htmlFor="password" className="sr-only">
+                {" "}
+                Password{" "}
+              </label>
+
+              <div className="relative pt-1">
+                <input
+                  type="password"
+                  className="w-full rounded-xl text-black border border-gray-200 p-5 shadow-sm"
+                  placeholder="Password"
+                />
+                <span className="absolute inset-y-0 end-0 grid place-content-center px-5">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    id="eye"
+                  >
+                    <g
+                      fill="none"
+                      fill-rule="evenodd"
+                      stroke="#000"
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                    >
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"></path>
+                    </g>
+                  </svg>
+                </span>
+              </div>
+            </div>
+
+            <div className="form__forgot">
+              <a href="gmail.com"><p className="text-blue-600 text-right underline pt-4">Lupa Password</p></a>
+            </div>
+
+            <div className="button__masuk pt-5">
+            <button type="submit" className="w-full inline-block rounded-xl border-2 border-red-600 bg-red-600 p-5 text-white font-bold hover:bg-white hover:text-red-600">Masuk</button>
+            </div>
+          </form>
         </div>
       </div>
     </section>
