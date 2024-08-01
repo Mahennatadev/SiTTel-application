@@ -1,8 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import "./login.css";
+import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const LoginComp = () => {
+  const goToLanding = useNavigate()
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [passwordVisible, setPasswordVisible] = useState(false);
@@ -140,9 +142,10 @@ const Login = () => {
 
         <div className="login__text mt-8">
           <div className="back__button">
-            <a
-              className="inline-block rounded-full drop-shadow-md shadow-red-600 border-2 border-red-600 p-4 text-red-600 hover:bg-red-600 hover:text-white focus:outline-none focus:ring active:bg-red-500"
-              href="instagram.com"
+            <button
+              type="button"
+              className="transition duration-500 inline-block rounded-full shadow-red-600 drop-shadow-md border-2 border-red-600 p-4 text-red-600 hover:bg-red-600 hover:text-white focus:outline-none focus:ring active:bg-red-500"
+              onClick={() => goToLanding('/landing')}
             >
               <span className="sr-only"> Kembali </span>
 
@@ -160,7 +163,7 @@ const Login = () => {
                   d="M10 19l-7-7m0 0l7-7m-7 7h18"
                 />
               </svg>
-            </a>
+            </button>
           </div>
 
           <div className="login__header mt-10">
@@ -189,6 +192,7 @@ const Login = () => {
                 <input
                   type="email"
                   id="email"
+                  autoComplete="email"
                   value={email}
                   onChange={handleEmailChange}
                   className="w-full rounded-xl text-black border border-gray-200 p-5 shadow-sm"
@@ -208,6 +212,7 @@ const Login = () => {
                 <input
                   type={passwordVisible ? "text" : "password"}
                   value={password}
+                  id="password"
                   className="w-full rounded-xl text-black border border-gray-200 p-5 shadow-sm"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
@@ -265,7 +270,7 @@ const Login = () => {
             <div className="button__masuk pt-5">
               <button
                 type="submit"
-                className="w-full inline-block text-base shadow-red-600 drop-shadow-md rounded-xl border-2 border-red-600 bg-red-600 p-5 text-white font-bold hover:bg-white hover:text-red-600"
+                className="transition duration-500 w-full inline-block text-base shadow-red-600 drop-shadow-md rounded-xl border-2 border-red-600 bg-red-600 p-5 text-white font-bold ease-in-out hover:bg-white hover:text-red-600 transform hover:-translate-y-1 hover:scale-100"
               >
                 Masuk
               </button>
@@ -285,4 +290,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginComp;
