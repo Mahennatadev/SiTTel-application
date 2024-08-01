@@ -1,7 +1,26 @@
 import React from "react";
+import { useState } from "react";
 import "./login.css";
 
 const Login = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [passwordVisible, setPasswordVisible] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setPasswordVisible(!passwordVisible);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    // Tambahkan logika untuk menangani form submission
+    console.log("Email:", email, "Password:", password);
+  };
   return (
     <section className="login section" id="login">
       <div className="login__container container mx-auto grid grid-cols-2 gap-4">
@@ -119,10 +138,10 @@ const Login = () => {
           </svg>
         </div>
 
-        <div className="login__text">
+        <div className="login__text mt-8">
           <div className="back__button">
             <a
-              className="inline-block rounded-full border-2 border-red-600 p-4 text-red-600 hover:bg-red-600 hover:text-white focus:outline-none focus:ring active:bg-red-500"
+              className="inline-block rounded-full drop-shadow-md shadow-red-600 border-2 border-red-600 p-4 text-red-600 hover:bg-red-600 hover:text-white focus:outline-none focus:ring active:bg-red-500"
               href="instagram.com"
             >
               <span className="sr-only"> Kembali </span>
@@ -156,7 +175,10 @@ const Login = () => {
             </p>
           </div>
 
-          <form action="#" className="mx-auto pt-16 mb-0 max-w-lg space-y-4">
+          <form
+            onSubmit={handleSubmit}
+            className="mx-auto pt-16 mb-0 max-w-lg space-y-4"
+          >
             <div className="form__email">
               <label htmlFor="email" className="sr-only">
                 {" "}
@@ -166,8 +188,12 @@ const Login = () => {
               <div className="relative">
                 <input
                   type="email"
+                  id="email"
+                  value={email}
+                  onChange={handleEmailChange}
                   className="w-full rounded-xl text-black border border-gray-200 p-5 shadow-sm"
                   placeholder="Alamat Email"
+                  required
                 />
               </div>
             </div>
@@ -180,38 +206,77 @@ const Login = () => {
 
               <div className="relative pt-1">
                 <input
-                  type="password"
+                  type={passwordVisible ? "text" : "password"}
+                  value={password}
                   className="w-full rounded-xl text-black border border-gray-200 p-5 shadow-sm"
                   placeholder="Password"
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
                 />
-                <span className="absolute inset-y-0 end-0 grid place-content-center px-5">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="24"
-                    height="24"
-                    id="eye"
-                  >
-                    <g
+                <span
+                  className="absolute inset-y-0 end-0 grid place-content-center px-5"
+                  onClick={togglePasswordVisibility}
+                >
+                  {passwordVisible ? (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
                       fill="none"
-                      fill-rule="evenodd"
-                      stroke="#000"
-                      stroke-linecap="round"
-                      stroke-linejoin="round"
-                      stroke-width="2"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
                     >
-                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19m-6.72-1.07a3 3 0 1 1-4.24-4.24M1 1l22 22"></path>
-                    </g>
-                  </svg>
+                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  ) : (
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      width="24"
+                      height="24"
+                      viewBox="0 0 24 24"
+                      fill="none"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    >
+                      <path d="M17.94 17.94A10.07 10.07 0 0 1 12 20c-7 0-11-8-11-8a18.45 18.45 0 0 1 5.06-5.94" />
+                      <path d="M9.9 4.24A9.12 9.12 0 0 1 12 4c7 0 11 8 11 8a18.5 18.5 0 0 1-2.16 3.19" />
+                      <path d="M1 1l22 22" />
+                      <circle cx="12" cy="12" r="3" />
+                    </svg>
+                  )}
                 </span>
               </div>
             </div>
 
             <div className="form__forgot">
-              <a href="gmail.com"><p className="text-blue-600 text-right underline pt-4">Lupa Password</p></a>
+              <a href="gmail.com">
+                <p className="text-blue-600 text-right underline pt-4">
+                  Lupa Password
+                </p>
+              </a>
             </div>
 
             <div className="button__masuk pt-5">
-            <button type="submit" className="w-full inline-block rounded-xl border-2 border-red-600 bg-red-600 p-5 text-white font-bold hover:bg-white hover:text-red-600">Masuk</button>
+              <button
+                type="submit"
+                className="w-full inline-block text-base shadow-red-600 drop-shadow-md rounded-xl border-2 border-red-600 bg-red-600 p-5 text-white font-bold hover:bg-white hover:text-red-600"
+              >
+                Masuk
+              </button>
+            </div>
+
+            <div className="footer__login flex gap-5 items-center self-end pt-20 mb-20 font-medium text-sm text-black">
+              <div className="shrink-0 self-stretch my-auto h-px border border-solid border-neutral-300 w-[80px]" />
+              <p className="flex-auto text-center">
+                Aplikasi Tanda Tangan Dokumen Digital
+              </p>
+              <div className="shrink-0 self-stretch my-auto h-px border border-solid border-neutral-300 w-[80px]" />
             </div>
           </form>
         </div>
