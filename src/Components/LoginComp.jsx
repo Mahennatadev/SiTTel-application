@@ -145,7 +145,7 @@ const LoginComp = () => {
             <button
               type="button"
               className="transition duration-500 inline-block rounded-full shadow-red-600 drop-shadow-md border-2 border-red-600 p-4 text-red-600 hover:bg-red-600 hover:text-white focus:outline-none focus:ring active:bg-red-500"
-              onClick={() => goToLanding('/landing')}
+              onClick={() => goToLanding('/')}
             >
               <span className="sr-only"> Kembali </span>
 

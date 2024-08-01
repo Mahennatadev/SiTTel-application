@@ -9,7 +9,7 @@ const Header = () => {
   return (
     <header className="mt-7 mx-36 gap-5 flex justify-between items-center self-stretch max-md:flex-wrap max-md:max-w-full max-sm:max-w-full max-sm:mx-5">
       <div className="landing__logo flex justify-center items-center self-stretch p-2">
-        <button type="button" onClick={() => goToLanding("/landing")}>
+        <button type="button" onClick={() => goToLanding("/")}>
         <img
           src={Logo}
           alt="Company Logo"
@@ -27,8 +27,8 @@ const Header = () => {
       <nav className="landing__button flex flex-col justify-center my-auto self-stretch whitespace-nowrap">
         <button
           type="button"
-          onClick={() => goToLogin("/")}
-          className="transition duration-500 py-2 px-12 inline-block text-base shadow-red-600 drop-shadow-md rounded-xl border-2 border-red-600 bg-red-600 p-5 text-white font-bold ease-in-out hover:bg-white hover:text-red-600 transform hover:-translate-y-1 hover:scale-100"
+          onClick={() => goToLogin("/login")}
+          className="transition duration-500 py-2 px-12 inline-block text-base shadow-red-600 drop-shadow-md rounded-xl border-2 border-red-600 bg-red-600 p-5 text-white font-bold ease-in-out hover:bg-white hover:text-red-600"
         >
           Masuk
         </button>
