@@ -17,7 +17,7 @@ const NotFound = () => {
             <h2 className="font-black text-4xl text-black">
               Halaman Ga Ketemu Bro!👻
             </h2>
-            <p className="text-black text-base pt-4">kencangkan sabuk pengaman, kamu akan dialihkan ke Landing page</p>
+            <p className="text-black text-base pt-4">kencangkan sabuk pengaman, kita akan dialihkan ke Landing page</p>
           </div>
 
           <div className="notfound__button pt-20">

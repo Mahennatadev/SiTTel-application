@@ -35,8 +35,8 @@ const Navbar = () => {
   }, []);
 
   return (
-    <header className="mt-7 mx-36 gap-5 flex bg-inherit justify-between items-center self-stretch max-md:flex-wrap max-md:max-w-full max-sm:max-w-full max-sm:mx-5">
-      <div className="dashboard__logo flex justify-center items-center self-stretch p-2">
+    <header className="mt-7 mx-36 gap-5 flex justify-between items-center self-stretch max-md:flex-wrap max-md:max-w-full max-sm:max-w-full max-sm:mx-5">
+      <div className="dashboard__logo flex items-center self-stretch p-2 w-[299px]">
         <button type="button" onClick={() => goToDashboard("/dashboard")}>
           <img src={Logo} alt="Company Logo" className="w-[138px] h-[40px]" />
         </button>
@@ -47,11 +47,11 @@ const Navbar = () => {
           <button
             key={index}
             onClick={() => navigate(item.path)}
-            className={
-              `self-stretch my-auto transition duration-300 ${
-                location.pathname === item.path ? 'text-red-600 underline underline-offset-8 decoration-2' : 'hover:underline hover:decoration-2 hover:underline-offset-8 hover:text-black'
-              }`
-            }
+            className={`self-stretch my-auto transition duration-300 ${
+              location.pathname === item.path
+                ? "text-red-600 underline underline-offset-8 decoration-2"
+                : "hover:underline hover:decoration-2 hover:underline-offset-8 hover:text-black"
+            }`}
           >
             {item.name}
           </button>
@@ -89,7 +89,7 @@ const Navbar = () => {
             type="button"
             id="dropdownUserAvatar"
             onClick={toggleDropdown}
-            className="box-border rounded-full border-transparent w-14 h-14 bg-white overflow-hidden"
+            className="box-border rounded-full border border-gray-300 w-14 h-14 bg-white overflow-hidden"
           >
             <img className="object-cover" src={Profile} alt="Profile Avatar" />
           </button>
