@@ -59,12 +59,12 @@ const Navbar = () => {
       </nav>
 
       <div className="dashboard__profile flex gap-5 items-center self-stretch my-auto">
-        <button className="bell__icon" type="button">
+        <button className="bell__icon flex items-center justify-center border border-transparent w-9 h-9 rounded-full hover:bg-gray-200 transition duration-300" type="button">
           <span className="sr-only"> Notifikasi </span>
 
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            fill="none"
+            fill="white"
             viewBox="0 0 24 24"
             strokeWidth={2}
             stroke="currentColor"
