@@ -65,7 +65,7 @@ const Navbar = () => {
             onClick={() => navigate(item.path)}
             className={`self-stretch my-auto transition duration-300 ${
               location.pathname === item.path
-                ? "text-red-600 underline underline-offset-8 decoration-2 -translate-y-1/4"
+                ? "text-red-600 underline underline-offset-8 decoration-2"
                 : "hover:underline hover:decoration-2 hover:underline-offset-8 hover:text-black"
             }`}
           >
