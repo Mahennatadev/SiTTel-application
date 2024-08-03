@@ -49,7 +49,7 @@ const Navbar = () => {
             onClick={() => navigate(item.path)}
             className={`self-stretch my-auto transition duration-300 ${
               location.pathname === item.path
-                ? "text-red-600 underline underline-offset-8 decoration-2"
+                ? "text-red-600 underline underline-offset-8 decoration-2 -translate-y-1/4"
                 : "hover:underline hover:decoration-2 hover:underline-offset-8 hover:text-black"
             }`}
           >
@@ -59,7 +59,7 @@ const Navbar = () => {
       </nav>
 
       <div className="dashboard__profile flex gap-5 items-center self-stretch my-auto">
-        <button className="bell__icon flex items-center justify-center border border-transparent w-9 h-9 rounded-full hover:bg-gray-200 transition duration-300" type="button">
+        <button className="bell__icon flex items-center justify-center border border-transparent w-12 h-12 rounded-full hover:bg-gray-200 transition duration-300" type="button">
           <span className="sr-only"> Notifikasi </span>
 
           <svg
@@ -97,7 +97,7 @@ const Navbar = () => {
           {isDropdownOpen && (
             <div
               id="dropdownAvatar"
-              className="absolute z-10 mt-2 left-1/2 transform -translate-x-1/2 divide-y shadow-xl border-transparent bg-white rounded-md hover:bg-gray-300 cursor-pointer"
+              className="absolute z-10 mt-2 left-1/2 transform -translate-x-1/2 divide-y shadow-xl transition duration-300 border-transparent bg-white rounded-md hover:bg-gray-300 cursor-pointer"
               style={{ minWidth: "150px" }}
             >
               <div
