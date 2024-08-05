@@ -1,16 +1,61 @@
+import { useState, useEffect } from "react";
 import React from "react";
 
+const dummyData = {
+  diproses: 10,
+  selesai: 5,
+  ditolak: 2,
+};
+
 const DashboardMainBox = () => {
+  /* const [documentCount, setDocumentCount] = useState(0);
+
+  useEffect(() => {
+    const fetchDocument = async () => {
+      try {
+        const response = await fetch('https://api.example.com/document-count');
+        const data = await response.json();
+        setDocumentCount(data.count);
+      } catch (error) {
+        console.error('Error fetching document count:', error);
+      }
+    };
+
+    fetchDocument();
+  }, []); */
+
+  const [documentCounts, setDocumentCounts] = useState({
+    diproses: 0,
+    selesai: 0,
+    ditolak: 0,
+  });
+
+  useEffect(() => {
+    // Fungsi untuk fetch data dari dummy data
+    const fetchDocumentCounts = async () => {
+      try {
+        // Simulasi fetch data
+        // Pada aplikasi nyata, ganti ini dengan fetch dari API endpoint
+        setDocumentCounts(dummyData);
+      } catch (error) {
+        console.error("Error fetching document counts:", error);
+      }
+    };
+
+    fetchDocumentCounts();
+  }, []);
+
   return (
-    <div className="dashboard__box flex flex-shrink-0 gap-4 place-content-center mt-10">
-      <div className="box__diproses grid grid-cols-2 transition duration-300 px-6 py-4 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-2 hover:transform cursor-no-drop">
+    <div className="dashboard__box flex flex-shrink-0 gap-4 place-content-center mt-10 max-md:ml-0 max-md:w-full">
+      <div className="box__diproses grid grid-cols-2 transition duration-300 px-8 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
         <div className="box__text space-y-1">
-          <h1 className="box__title text-black font-bold text-2xl">Diproses
-          </h1>
-          <p className="box__subtitle text-black text-sm font-normal">
+          <h1 className="box__title text-black font-bold text-2xl">Diproses</h1>
+          <p className="box__subtitle text-black text-base font-normal">
             Jumlah Dokumen
           </p>
-          <p className="box__value text-black text-7xl font-normal pt-10">10</p>
+          <p className="box__value text-black text-7xl font-normal pt-10">
+          {documentCounts.diproses}
+          </p>
         </div>
         <div className="box__illustrations">
           <svg
@@ -230,13 +275,13 @@ const DashboardMainBox = () => {
         </div>
       </div>
 
-      <div className="box__selesai grid grid-cols-2 transition duration-300 px-6 py-4 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-2 hover:transform cursor-no-drop">
+      <div className="box__selesai grid grid-cols-2 transition duration-300 px-8 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
         <div className="box__text space-y-1">
           <h1 className="box__title text-black font-bold text-2xl">Selesai</h1>
-          <p className="box__subtitle text-black text-sm font-normal">
+          <p className="box__subtitle text-black text-base font-normal">
             Jumlah Dokumen
           </p>
-          <p className="box__value text-black text-7xl font-normal pt-10">5</p>
+          <p className="box__value text-black text-7xl font-normal pt-10">{documentCounts.selesai}</p>
         </div>
         <div className="box__illustrations">
           <svg
@@ -422,13 +467,13 @@ const DashboardMainBox = () => {
         </div>
       </div>
 
-      <div className="box__ditolak grid grid-cols-2 transition duration-300 px-6 py-4 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-2 hover:transform cursor-no-drop">
+      <div className="box__ditolak grid grid-cols-2 transition duration-300 px-8 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
         <div className="box__text space-y-1">
           <h1 className="box__title text-black font-bold text-2xl">Ditolak</h1>
-          <p className="box__subtitle text-black text-sm font-normal">
+          <p className="box__subtitle text-black text-base font-normal">
             Jumlah Dokumen
           </p>
-          <p className="box__value text-black text-7xl font-normal pt-10">2</p>
+          <p className="box__value text-black text-7xl font-normal pt-10">{documentCounts.ditolak}</p>
         </div>
         <div className="box__illustrations">
           <svg
