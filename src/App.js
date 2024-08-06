@@ -7,6 +7,7 @@ import Dashboard from './Pages/Dashboard';
 import Unggah from './Pages/Unggah';
 import KaryawanStatusDoc from './Pages/KaryawanStatusDoc';
 import KaryawanRiwayatDoc from './Pages/KaryawanRiwayatDoc';
+import DashboardPre from './Pages/DashboardPre';
 
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path='/' element={<Landing />} />
         <Route path='/login' element={<Login />} />
         <Route path='/dashboard' element={<Dashboard />} />
+        <Route path='/dashboardpre' element={<DashboardPre />} />
         <Route path='/karyawanUnggah' element={<Unggah />} />
         <Route path='/karyawanStatus' element={<KaryawanStatusDoc />} />
         <Route path='/karyawanRiwayat' element={<KaryawanRiwayatDoc />} />
