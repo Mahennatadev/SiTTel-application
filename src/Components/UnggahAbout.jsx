@@ -1,10 +1,12 @@
 import { useState } from "react";
 import React from "react";
+import UnggahNotification from "./UnggahNotification";
 
 const UnggahAbout = () => {
   const [selectedFile, setSelectedFile] = useState(null);
-  const [selectedJenisKeperluan, setSelectedJenisKeperluan] = useState('');
-  const [selectedPenerimaDoc, setSelectedPenerimaDoc] = useState('');
+  const [selectedJenisKeperluan, setSelectedJenisKeperluan] = useState("");
+  const [selectedPenerimaDoc, setSelectedPenerimaDoc] = useState("");
+  const [showNotification, setShowNotification] = useState(false);
 
   const handleJenisKeperluanChange = (event) => {
     setSelectedJenisKeperluan(event.target.value);
@@ -12,11 +14,14 @@ const UnggahAbout = () => {
 
   const handlePenerimaDoc = (event) => {
     setSelectedPenerimaDoc(event.target.value);
-  }
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // Handle form submission logic here
+    // Logika untuk mengirim data ke server (belum terkoneksi dengan database)
+    // ...
+    // Tampilkan pop-up
+    setShowNotification(true);
   };
 
   const handleFileChange = (event) => {
@@ -78,14 +83,20 @@ const UnggahAbout = () => {
                   id="jenis-keperluan"
                   value={selectedJenisKeperluan}
                   onChange={handleJenisKeperluanChange}
-                  className={`rounded-xl border border-gray-300 p-4 shadow-sm w-[586px] appearance-none ${selectedJenisKeperluan === '' ? 'text-gray-400' : 'text-black'}`}
+                  className={`rounded-xl border border-gray-300 p-4 shadow-sm w-[586px] appearance-none ${
+                    selectedJenisKeperluan === ""
+                      ? "text-gray-400"
+                      : "text-black"
+                  }`}
                 >
-                  <option value="">
-                    Pilih Jenis Keperluan
-                  </option>
+                  <option value="">Pilih Jenis Keperluan</option>
                   <option value="keperluan1">Pengajuan Cuti Kerja</option>
-                  <option value="keperluan2">Peminjaman Kendaraan Perusahaan</option>
-                  <option value="keperluan3">Laporan Keuangan Perusahaan</option>
+                  <option value="keperluan2">
+                    Peminjaman Kendaraan Perusahaan
+                  </option>
+                  <option value="keperluan3">
+                    Laporan Keuangan Perusahaan
+                  </option>
                 </select>
 
                 <div className="pointer-events-none absolute inset-y-0 right-4 flex items-center text-black">
@@ -109,11 +120,11 @@ const UnggahAbout = () => {
                   id="penerima-doc"
                   value={selectedPenerimaDoc}
                   onChange={handlePenerimaDoc}
-                  className={`rounded-xl border border-gray-300 p-4 shadow-sm w-[586px] appearance-none ${selectedPenerimaDoc === '' ? 'text-gray-400' : 'text-black'}`}
+                  className={`rounded-xl border border-gray-300 p-4 shadow-sm w-[586px] appearance-none ${
+                    selectedPenerimaDoc === "" ? "text-gray-400" : "text-black"
+                  }`}
                 >
-                  <option value="">
-                    Pilih Penerima Dokumen
-                  </option>
+                  <option value="">Pilih Penerima Dokumen</option>
                   <option value="penerima1">Erwin</option>
                   <option value="penerima2">Eko</option>
                   <option value="penerima3">Deddy</option>
@@ -220,6 +231,12 @@ const UnggahAbout = () => {
               </button>
             </div>
           </form>
+
+          {showNotification && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+              <UnggahNotification />
+            </div>
+          )}
         </div>
         <div className="unggah__illustration flex items-center h-auto w-auto">
           <svg

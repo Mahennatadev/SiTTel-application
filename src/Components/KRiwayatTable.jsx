@@ -1,8 +1,13 @@
 import React from "react";
 import { useState } from "react";
 import KRiwayatPagination from "./KRiwayatPagination";
+import KRiwayatNotificationDone from "./KRiwayatNotificationDone";
+import KRiwayatNotificationFailed from "./KRiwayatNotificationFailed";
 
-const KRiwayatTable = () => {
+const KRiwayatTable = ({ row }) => {
+  const [showNotification, setShowNotification] = useState(false);
+  const [status, setStatus] = useState(null); // "sukses" or "gagal"
+
   const tableData = [
     {
       id: "232372",
@@ -70,6 +75,16 @@ const KRiwayatTable = () => {
         return "";
     }
   };
+
+  const handleButtonClick = (status) => {
+    setStatus(status);
+    setShowNotification(true);
+  };
+
+  // const handleCloseNotification = () => {
+  //   setShowNotification(false);
+  //   setStatus(null);
+  // };
 
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 5; // Jumlah baris per halaman
@@ -168,7 +183,10 @@ const KRiwayatTable = () => {
                     </span>
                   </td>
                   <td className="border border-gray-100 py-3 px-2 text-blue-700">
-                    <button className="flex items-center gap-2">
+                    <button
+                      className="flex items-center gap-2"
+                      onClick={() => handleButtonClick(row.status)}
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -200,6 +218,16 @@ const KRiwayatTable = () => {
           onPageChange={handlePageChange}
         />
       </div>
+
+      {showNotification && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          {status === "Selesai" ? (
+            <KRiwayatNotificationDone />
+          ) : (
+            <KRiwayatNotificationFailed />
+          )}
+        </div>
+      )}
     </div>
   );
 };

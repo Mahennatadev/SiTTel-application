@@ -8,13 +8,17 @@ const Navbar = () => {
   const avatarDropdownRef = useRef(null);
   const notificationDropdownRef = useRef(null);
   const [isAvatarDropdownOpen, setIsAvatarDropdownOpen] = useState(false);
-  const [isNotificationDropdownOpen, setIsNotificationDropdownOpen] =
-    useState(false);
+  const [isNotificationDropdownOpen, setIsNotificationDropdownOpen] = useState(false);
   const navigate = useNavigate();
   const goToDashboard = useNavigate();
   const goToLogin = useNavigate();
-  const goRiwayat = useNavigate();
   const location = useLocation();
+
+  const nav = useNavigate();
+
+  const goToRiwayat = () => {
+    nav('/karyawanRiwayat'); // Ganti dengan path halaman yang diinginkan
+  };
   const navItems = [
     { name: "Unggah", path: "/karyawanUnggah" },
     { name: "Status", path: "/karyawanStatus" },
@@ -133,7 +137,7 @@ const Navbar = () => {
               </div>
 
               {/* Notification-Two */}
-              <div className="notification__menu px-4 py-4 flex items-start rounded-2xl gap-6 transition duration-300 border-transparent bg-white hover:bg-gray-300 cursor-pointer">
+              <div className="notification__menu px-4 py-4 flex items-start rounded-2xl gap-6 transition duration-300 border-transparent bg-white hover:bg-gray-300 cursor-pointer" onClick={goToRiwayat}>
                 <div className="notification__avatar flex-shrink-0 rounded-full border border-gray-300 w-10 h-10 bg-transparent overflow-hidden">
                   <img
                     className="object-cover w-full h-full"
