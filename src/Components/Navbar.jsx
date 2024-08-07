@@ -13,6 +13,7 @@ const Navbar = () => {
   const navigate = useNavigate();
   const goToDashboard = useNavigate();
   const goToLogin = useNavigate();
+  const goRiwayat = useNavigate();
   const location = useLocation();
   const navItems = [
     { name: "Unggah", path: "/karyawanUnggah" },
