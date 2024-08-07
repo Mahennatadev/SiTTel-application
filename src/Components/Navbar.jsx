@@ -106,7 +106,7 @@ const Navbar = () => {
               id="dropdownNotification"
               className="absolute z-20 mt-2 left-1/2 transform -translate-x-1/2 divide-y shadow-xl w-96 max-w-xs border border-gray-200 rounded-2xl"
             >
-              <div className="text-center px-4 py-2 font-bold border-b border-gray-200">
+              <div className="text-center px-4 py-2 font-bold">
                 Notification
               </div>
 

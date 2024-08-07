@@ -3,6 +3,16 @@ import React from "react";
 
 const UnggahAbout = () => {
   const [selectedFile, setSelectedFile] = useState(null);
+  const [selectedJenisKeperluan, setSelectedJenisKeperluan] = useState('');
+  const [selectedPenerimaDoc, setSelectedPenerimaDoc] = useState('');
+
+  const handleJenisKeperluanChange = (event) => {
+    setSelectedJenisKeperluan(event.target.value);
+  };
+
+  const handlePenerimaDoc = (event) => {
+    setSelectedPenerimaDoc(event.target.value);
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -66,7 +76,9 @@ const UnggahAbout = () => {
               <div className="relative w-[586px]">
                 <select
                   id="jenis-keperluan"
-                  className="rounded-xl text-gray-400 border border-gray-300 p-4 shadow-sm w-[586px] appearance-none"
+                  value={selectedJenisKeperluan}
+                  onChange={handleJenisKeperluanChange}
+                  className={`rounded-xl border border-gray-300 p-4 shadow-sm w-[586px] appearance-none ${selectedJenisKeperluan === '' ? 'text-gray-400' : 'text-black'}`}
                 >
                   <option value="">
                     Pilih Jenis Keperluan
@@ -95,7 +107,9 @@ const UnggahAbout = () => {
               <div className="relative w-[586px]">
                 <select
                   id="penerima-doc"
-                  className="rounded-xl text-gray-400 border border-gray-300 p-4 shadow-sm w-[586px] appearance-none"
+                  value={selectedPenerimaDoc}
+                  onChange={handlePenerimaDoc}
+                  className={`rounded-xl border border-gray-300 p-4 shadow-sm w-[586px] appearance-none ${selectedPenerimaDoc === '' ? 'text-gray-400' : 'text-black'}`}
                 >
                   <option value="">
                     Pilih Penerima Dokumen

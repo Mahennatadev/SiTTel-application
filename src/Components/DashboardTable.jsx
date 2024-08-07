@@ -60,7 +60,7 @@ const DashboardTable = () => {
   };
 
   return (
-    <div className="table__cards mx-36 mt-4 p-6 bg-white shadow-lg rounded-lg">
+    <div className="table__cards mx-36 mt-1 p-6 bg-white shadow-lg rounded-lg">
       <div className="dashboard__table">
         <div className="table__title">
           <p className="text-black font-bold">Status 5 dokumen terbaru:</p>
