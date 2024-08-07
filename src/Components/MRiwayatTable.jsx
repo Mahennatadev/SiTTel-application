@@ -1,8 +1,8 @@
 import { useState } from "react";
 import React from "react";
-import MPermintaanPagination from "./MPermintaanPagination";
+import MRiwayatPagination from "./MRiwayatPagination";
 
-const MPermintaanTable = () => {
+const MRiwayatTable = () => {
   const tableData = [
     {
       id: "232372",
@@ -10,7 +10,7 @@ const MPermintaanTable = () => {
       sender: "Rina",
       document: "Dokumen-A",
       type: "Keperluan-1",
-      status: "Menunggu",
+      status: "Selesai",
       check: "Dokumen-A",
     },
     {
@@ -19,7 +19,7 @@ const MPermintaanTable = () => {
       sender: "Beni",
       document: "Dokumen-B",
       type: "Keperluan-2",
-      status: "Menunggu",
+      status: "Ditolak",
       check: "Dokumen-B",
     },
     {
@@ -28,7 +28,7 @@ const MPermintaanTable = () => {
       sender: "Lina",
       document: "Dokumen-C",
       type: "Keperluan-3",
-      status: "Menunggu",
+      status: "Selesai",
       check: "Dokumen-C",
     },
     {
@@ -37,7 +37,7 @@ const MPermintaanTable = () => {
       sender: "Azhar",
       document: "Dokumen-D",
       type: "Keperluan-4",
-      status: "Menunggu",
+      status: "Selesai",
       check: "Dokumen-D",
     },
     {
@@ -46,7 +46,7 @@ const MPermintaanTable = () => {
       sender: "Beddy",
       document: "Dokumen-E",
       type: "Keperluan-5",
-      status: "Menunggu",
+      status: "Selesai",
       check: "Dokumen-E",
     },
     {
@@ -55,7 +55,7 @@ const MPermintaanTable = () => {
       sender: "Rina",
       document: "Dokumen-A",
       type: "Keperluan-1",
-      status: "Menunggu",
+      status: "Ditolak",
       check: "Dokumen-F",
     },
     {
@@ -64,7 +64,7 @@ const MPermintaanTable = () => {
       sender: "Beni",
       document: "Dokumen-B",
       type: "Keperluan-2",
-      status: "Menunggu",
+      status: "Selesai",
       check: "Dokumen-G",
     },
     {
@@ -73,7 +73,7 @@ const MPermintaanTable = () => {
       sender: "Lina",
       document: "Dokumen-C",
       type: "Keperluan-3",
-      status: "Menunggu",
+      status: "Selesai",
       check: "Dokumen-H",
     },
     {
@@ -82,7 +82,7 @@ const MPermintaanTable = () => {
       sender: "Azhar",
       document: "Dokumen-D",
       type: "Keperluan-4",
-      status: "Menunggu",
+      status: "Selesai",
       check: "Dokumen-I",
     },
     {
@@ -91,7 +91,7 @@ const MPermintaanTable = () => {
       sender: "Beddy",
       document: "Dokumen-E",
       type: "Keperluan-5",
-      status: "Menunggu",
+      status: "Selesai",
       check: "Dokumen-J",
     },
   ];
@@ -110,7 +110,7 @@ const MPermintaanTable = () => {
   };
 
   const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 10; // Jumlah baris per halaman
+  const rowsPerPage = 6; // Jumlah baris per halaman
   const totalPages = Math.ceil(tableData.length / rowsPerPage);
 
   const handlePageChange = (page) => {
@@ -126,7 +126,7 @@ const MPermintaanTable = () => {
   return (
     <div className="mx-36 mt-4">
       <div className="table__cards p-6 bg-white shadow-lg rounded-lg">
-        <div className="permintaan__table">
+        <div className="riwayat__table">
           <table className="table-fixed border-collapse border border-gray-100 mt-6 shadow-md">
             <thead className="font-bold text-black">
               <tr>
@@ -149,7 +149,7 @@ const MPermintaanTable = () => {
                   Status
                 </th>
                 <th className="w-[180px] text-left py-3 px-2 border border-gray-100">
-                  Lihat
+                  Detail
                 </th>
               </tr>
             </thead>
@@ -212,7 +212,7 @@ const MPermintaanTable = () => {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
+                          d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m.75 12 3 3m0 0 3-3m-3 3v-6m-1.5-9H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
                         />
                       </svg>
 
@@ -227,14 +227,14 @@ const MPermintaanTable = () => {
       </div>
 
       <div className="mt-4 flex">
-        <MPermintaanPagination
+        <MRiwayatPagination
           currentPage={currentPage}
           totalPages={totalPages}
-          OnPageChange={handlePageChange}
+          onPageChange={handlePageChange}
         />
       </div>
     </div>
   );
 };
 
-export default MPermintaanTable;
+export default MRiwayatTable;
