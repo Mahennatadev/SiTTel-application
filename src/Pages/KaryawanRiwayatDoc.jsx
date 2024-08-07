@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from '../Components/Navbar'
 import KRiwayatComp from '../Components/KRiwayatComp'
 import KRiwayatTable from '../Components/KRiwayatTable'
+import KNavbar from '../Components/KNavbar'
 
 const KaryawanRiwayatDoc = () => {
   return (
     <div>
-      <Navbar />
+      <KNavbar />
       <KRiwayatComp />
       <KRiwayatTable />
     </div>

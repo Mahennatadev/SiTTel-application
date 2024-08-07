@@ -1,14 +1,14 @@
 import React from 'react'
-import Navbar from '../Components/Navbar'
 import UnggahAbout from '../Components/UnggahAbout'
+import KNavbar from '../Components/KNavbar'
 
-const Unggah = () => {
+const KaryawanUnggah = () => {
   return (
     <div>
-      <Navbar />
+      <KNavbar />
       <UnggahAbout />
     </div>
   )
 }
 
-export default Unggah
+export default KaryawanUnggah

@@ -1,9 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
-const KRiwayatNotificationDone = () => {
-  const goToDashboard = useNavigate();
-  const goToRiwayat = useNavigate();
+const KRiwayatNotificationDone = ({ onClose }) => {
 
   return (
     <div className="riwayat__donenotification border-transparent bg-white rounded-2xl p-8">
@@ -17,12 +14,12 @@ const KRiwayatNotificationDone = () => {
             Silahkan unduh dokumen anda
           </p>
 
-          <div className="text__catatan mt-4 border h-32 border-gray-200 bg-white rounded-2xl">
+          <div className="text__catatan mt-4 border h-32 border-gray-400 bg-white rounded-2xl">
             <p className="isi__catatan text-black p-4 font-medium">Isi Catatan.....</p>
           </div>
         </div>
         <div className="notification__illustrations flex-col grid">
-          <button type="button" className="justify-self-end" onClick={() => goToRiwayat('/karyawanRiwayat')}>
+          <button type="button" className="justify-self-end" onClick={onClose}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -185,7 +182,6 @@ const KRiwayatNotificationDone = () => {
       <button
         type="button"
         className="transition duration-500 mt-10 px-8 py-2 text-base shadow-green-600 drop-shadow-md rounded-xl border-2 border-green-600 bg-white text-green-600 font-bold hover:bg-green-600 hover:text-white"
-        onClick={() => goToDashboard("/dashboard")}
       >
         Unduh Dokumen
       </button>

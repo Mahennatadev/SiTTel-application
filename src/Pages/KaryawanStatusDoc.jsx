@@ -1,12 +1,12 @@
 import React from 'react'
-import Navbar from '../Components/Navbar'
 import KStatusComp from '../Components/KStatusComp'
 import KStatusTable from '../Components/KStatusTable'
+import KNavbar from '../Components/KNavbar'
 
 const KaryawanStatusDoc = () => {
   return (
     <div>
-      <Navbar />
+      <KNavbar />
       <KStatusComp />
       <KStatusTable />
     </div>

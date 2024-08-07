@@ -2,31 +2,15 @@ import { useState, useEffect } from "react";
 import React from "react";
 
 const dummyData = {
-  diproses: 10,
-  selesai: 5,
+  menunggu: 10,
+  ditandatangani: 5,
   ditolak: 2,
 };
 
-const DashboardMainBox = () => {
-  /* const [documentCount, setDocumentCount] = useState(0);
-
-  useEffect(() => {
-    const fetchDocument = async () => {
-      try {
-        const response = await fetch('https://api.example.com/document-count');
-        const data = await response.json();
-        setDocumentCount(data.count);
-      } catch (error) {
-        console.error('Error fetching document count:', error);
-      }
-    };
-
-    fetchDocument();
-  }, []); */
-
+const MDashboardMainBox = () => {
   const [documentCounts, setDocumentCounts] = useState({
-    diproses: 0,
-    selesai: 0,
+    menunggu: 0,
+    ditandatangani: 0,
     ditolak: 0,
   });
 
@@ -49,12 +33,12 @@ const DashboardMainBox = () => {
     <div className="dashboard__box flex flex-shrink-0 gap-4 place-content-center mt-10 max-md:ml-0 max-md:w-full">
       <div className="box__diproses grid grid-cols-2 transition duration-300 px-8 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
         <div className="box__text space-y-1">
-          <h1 className="box__title text-black font-bold text-2xl">Diproses</h1>
+          <h1 className="box__title text-black font-bold text-2xl">Menunggu</h1>
           <p className="box__subtitle text-black text-base font-normal">
             Jumlah Dokumen
           </p>
           <p className="box__value text-black text-7xl font-normal pt-10">
-          {documentCounts.diproses}
+            {documentCounts.menunggu}
           </p>
         </div>
         <div className="box__illustrations flex items-center flex-shrink-0">
@@ -281,7 +265,9 @@ const DashboardMainBox = () => {
           <p className="box__subtitle text-black text-base font-normal">
             Jumlah Dokumen
           </p>
-          <p className="box__value text-black text-7xl font-normal pt-10">{documentCounts.selesai}</p>
+          <p className="box__value text-black text-7xl font-normal pt-10">
+            {documentCounts.ditandatangani}
+          </p>
         </div>
         <div className="box__illustrations flex items-center flex-shrink-0">
           <svg
@@ -473,7 +459,9 @@ const DashboardMainBox = () => {
           <p className="box__subtitle text-black text-base font-normal">
             Jumlah Dokumen
           </p>
-          <p className="box__value text-black text-7xl font-normal pt-10">{documentCounts.ditolak}</p>
+          <p className="box__value text-black text-7xl font-normal pt-10">
+            {documentCounts.ditolak}
+          </p>
         </div>
         <div className="box__illustrations flex items-center flex-shrink-0">
           <svg
@@ -524,4 +512,4 @@ const DashboardMainBox = () => {
   );
 };
 
-export default DashboardMainBox;
+export default MDashboardMainBox;

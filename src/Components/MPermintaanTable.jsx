@@ -1,63 +1,96 @@
 import React from "react";
-import { useState } from "react";
-import KRiwayatPagination from "./KRiwayatPagination";
-import KRiwayatNotificationDone from "./KRiwayatNotificationDone";
-import KRiwayatNotificationFailed from "./KRiwayatNotificationFailed";
 
-const KRiwayatTable = ({ row }) => {
-  const [showNotification, setShowNotification] = useState(false);
-  const [status, setStatus] = useState(null); // "sukses" or "gagal"
-
+const MPermintaanTable = () => {
   const tableData = [
     {
       id: "232372",
-      date: "20 Juli 2024",
-      done: "20 Juli 2024",
+      date: "10 Juli 2024",
+      sender: "Rina",
       document: "Dokumen-A",
       type: "Keperluan-1",
-      recipient: "Eko",
-      status: "Selesai",
+      status: "Menunggu",
       check: "Dokumen-A",
     },
     {
       id: "945847",
-      date: "17 Juli 2024",
-      done: "17 Juli 2024",
+      date: "15 Juli 2024",
+      sender: "Beni",
       document: "Dokumen-B",
       type: "Keperluan-2",
-      recipient: "Erwin",
-      status: "Ditolak",
+      status: "Menunggu",
       check: "Dokumen-B",
     },
     {
       id: "027374",
       date: "16 Juli 2024",
-      done: "16 Juli 2024",
+      sender: "Lina",
       document: "Dokumen-C",
       type: "Keperluan-3",
-      recipient: "Deddy",
-      status: "Selesai",
+      status: "Menunggu",
       check: "Dokumen-C",
     },
     {
       id: "974543",
-      date: "15 Juli 2024",
-      done: "15 Juli 2024",
+      date: "17 Juli 2024",
+      sender: "Azhar",
       document: "Dokumen-D",
       type: "Keperluan-4",
-      recipient: "Budi",
-      status: "Selesai",
+      status: "Menunggu",
       check: "Dokumen-D",
     },
     {
       id: "023824",
-      date: "10 Juli 2024",
-      done: "10 Juli 2024",
+      date: "20 Juli 2024",
+      sender: "Beddy",
       document: "Dokumen-E",
       type: "Keperluan-5",
-      recipient: "Bachtiar",
-      status: "Ditolak",
+      status: "Menunggu",
       check: "Dokumen-E",
+    },
+    {
+      id: "232372",
+      date: "10 Juli 2024",
+      sender: "Rina",
+      document: "Dokumen-A",
+      type: "Keperluan-1",
+      status: "Menunggu",
+      check: "Dokumen-F",
+    },
+    {
+      id: "945847",
+      date: "15 Juli 2024",
+      sender: "Beni",
+      document: "Dokumen-B",
+      type: "Keperluan-2",
+      status: "Menunggu",
+      check: "Dokumen-G",
+    },
+    {
+      id: "027374",
+      date: "16 Juli 2024",
+      sender: "Lina",
+      document: "Dokumen-C",
+      type: "Keperluan-3",
+      status: "Menunggu",
+      check: "Dokumen-H",
+    },
+    {
+      id: "974543",
+      date: "17 Juli 2024",
+      sender: "Azhar",
+      document: "Dokumen-D",
+      type: "Keperluan-4",
+      status: "Menunggu",
+      check: "Dokumen-I",
+    },
+    {
+      id: "023824",
+      date: "20 Juli 2024",
+      sender: "Beddy",
+      document: "Dokumen-E",
+      type: "Keperluan-5",
+      status: "Menunggu",
+      check: "Dokumen-J",
     },
   ];
 
@@ -65,45 +98,19 @@ const KRiwayatTable = ({ row }) => {
     switch (status) {
       case "Selesai":
         return "bg-green-500 text-white";
-      case "Diproses":
+      case "Menunggu":
         return "bg-orange-500 text-white";
       case "Ditolak":
         return "bg-red-500 text-white";
-      case "Diajukan":
-        return "bg-blue-500 text-white";
       default:
         return "";
     }
   };
 
-  const handleButtonClick = (status) => {
-    setStatus(status);
-    setShowNotification(true);
-  };
-
-  const handleCloseNotification = () => {
-    setShowNotification(false);
-    setStatus(null);
-  };
-
-  const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 5; // Jumlah baris per halaman
-  const totalPages = Math.ceil(tableData.length / rowsPerPage);
-
-  const handlePageChange = (page) => {
-    setCurrentPage(page);
-  };
-
-  // Mendapatkan data tabel untuk halaman saat ini
-  const currentTableData = tableData.slice(
-    (currentPage - 1) * rowsPerPage,
-    currentPage * rowsPerPage
-  );
-
   return (
     <div className="mx-36 mt-4">
       <div className="table__cards p-6 bg-white shadow-lg rounded-lg">
-        <div className="riwayat__table">
+        <div className="permintaan__table">
           <table className="table-fixed border-collapse border border-gray-100 mt-6 shadow-md">
             <thead className="font-bold text-black">
               <tr>
@@ -111,30 +118,27 @@ const KRiwayatTable = ({ row }) => {
                   Id
                 </th>
                 <th className="w-[240px] text-left py-3 px-2 border border-gray-100">
-                  Pengajuan
+                  Diajukan
                 </th>
-                <th className="w-[240px] text-left py-3 px-2 border border-gray-100">
-                  Selesai
+                <th className="w-[200px] text-left py-3 px-2 border border-gray-100">
+                  Nama Pengirim
                 </th>
-                <th className="w-[400px] text-left py-3 px-2 border border-gray-100">
+                <th className="w-[600px] text-left py-3 px-2 border border-gray-100">
                   Judul Dokumen
                 </th>
                 <th className="w-[360px] text-left py-3 px-2 border border-gray-100">
                   Jenis Keperluan
                 </th>
-                <th className="w-[200px] text-left py-3 px-2 border border-gray-100">
-                  Penerima
-                </th>
                 <th className="w-[180px] text-left py-3 px-2 border border-gray-100">
                   Status
                 </th>
                 <th className="w-[180px] text-left py-3 px-2 border border-gray-100">
-                  Detail
+                  Lihat
                 </th>
               </tr>
             </thead>
             <tbody>
-              {currentTableData.map((row, index) => (
+              {tableData.map((row, index) => (
                 <tr key={index}>
                   <td className="border border-gray-100 flex items-center gap-2 py-3 px-2 font-semibold">
                     <svg
@@ -162,16 +166,13 @@ const KRiwayatTable = ({ row }) => {
                     {row.date}
                   </td>
                   <td className="py-2 px-2 border-gray-100 border">
-                    {row.done}
+                    {row.sender}
                   </td>
                   <td className="py-2 px-2 border-gray-100 border">
                     {row.document}
                   </td>
                   <td className="py-2 px-2 border-gray-100 border">
                     {row.type}
-                  </td>
-                  <td className="py-2 px-2 border-gray-100 border">
-                    {row.recipient}
                   </td>
                   <td className="py-2 px-2 border-gray-100 border">
                     <span
@@ -183,10 +184,7 @@ const KRiwayatTable = ({ row }) => {
                     </span>
                   </td>
                   <td className="border border-gray-100 py-3 px-2 text-blue-700">
-                    <button
-                      className="flex items-center gap-2"
-                      onClick={() => handleButtonClick(row.status)}
-                    >
+                    <button className="flex items-center gap-2">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -198,9 +196,10 @@ const KRiwayatTable = ({ row }) => {
                         <path
                           strokeLinecap="round"
                           strokeLinejoin="round"
-                          d="m9 13.5 3 3m0 0 3-3m-3 3v-6m1.06-4.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z"
+                          d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
                         />
                       </svg>
+
                       {row.check}
                     </button>
                   </td>
@@ -210,26 +209,8 @@ const KRiwayatTable = ({ row }) => {
           </table>
         </div>
       </div>
-
-      <div className="mt-4 flex">
-        <KRiwayatPagination
-          currentPage={currentPage}
-          totalPages={totalPages}
-          onPageChange={handlePageChange}
-        />
-      </div>
-
-      {showNotification && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
-          {status === "Selesai" ? (
-            <KRiwayatNotificationDone onClose={handleCloseNotification} />
-          ) : (
-            <KRiwayatNotificationFailed onClose={handleCloseNotification} />
-          )}
-        </div>
-      )}
     </div>
   );
 };
 
-export default KRiwayatTable;
+export default MPermintaanTable;

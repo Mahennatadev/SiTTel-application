@@ -18,7 +18,7 @@ const UnggahNotification = () => {
           <button
             type="button"
             className="transition duration-500 mt-12 p-2 w-40 inline-block text-base shadow-green-600 drop-shadow-md rounded-xl border-2 border-green-600 bg-white text-green-600 font-bold hover:bg-green-600 hover:text-white"
-            onClick={() => goToDashboard('/dashboard')}
+            onClick={() => goToDashboard('/KaryawanDashboard')}
           >
             Oke
           </button>

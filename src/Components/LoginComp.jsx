@@ -3,7 +3,6 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginComp = () => {
-  const goToDashboard = useNavigate()
   const goToLanding = useNavigate()
 
   const [email, setEmail] = useState("");
@@ -271,7 +270,6 @@ const LoginComp = () => {
             <div className="button__masuk pt-5">
               <button
                 type="button"
-                onClick={() => goToDashboard('/dashboard')}
                 className="transition duration-500 w-full inline-block text-base shadow-red-600 drop-shadow-md rounded-xl border-2 border-red-600 bg-red-600 p-5 text-white font-bold ease-in-out hover:bg-white hover:text-red-600 transform hover:-translate-y-1 hover:scale-100"
               >
                 Masuk

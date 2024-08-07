@@ -1,14 +1,14 @@
 import React from 'react'
-import Navbar from '../Components/Navbar'
 import DashboardAbout from '../Components/DashboardAbout'
 import DashboardMainBox from '../Components/DashboardMainBox'
 import DashboardTable from '../Components/DashboardTable'
+import KNavbar from '../Components/KNavbar'
 
 
-const Dashboard = () => {
+const KaryawanDashboard = () => {
   return (
     <div>
-        <Navbar />
+        <KNavbar />
         <DashboardAbout />
         <DashboardMainBox />
         <DashboardTable />
@@ -16,4 +16,4 @@ const Dashboard = () => {
   )
 }
 
-export default Dashboard
+export default KaryawanDashboard

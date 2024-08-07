@@ -1,12 +1,11 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 
-const KRiwayatNotificationFailed = () => {
+const KRiwayatNotificationFailed = ({ onClose }) => {
   const goToDashboard = useNavigate();
-  const goToRiwayat = useNavigate();
 
   return (
-    <div className="riwayat__donenotification border-transparent bg-white rounded-2xl p-8">
+    <div className="riwayat__failednotification border-transparent bg-white rounded-2xl p-8">
       <div className="grid grid-cols-2 gap-4">
         <div className="notification__text text-start">
           <p className="text__title text-lg text-black font-bold">
@@ -17,12 +16,12 @@ const KRiwayatNotificationFailed = () => {
             Perhatikan catatan yang diberikan
           </p>
 
-          <div className="done__catatan mt-4 border h-32 border-gray-200 bg-white rounded-2xl">
+          <div className="done__catatan mt-4 border h-32 border-gray-400 bg-white rounded-2xl">
             <p className="isi__catatan text-black p-4 font-medium">Isi Catatan...</p>
           </div>
         </div>
         <div className="notification__illustrations flex-col grid">
-          <button type="button" className="justify-self-end" onClick={() => goToRiwayat('/karyawanRiwayat')}>
+          <button type="button" className="justify-self-end" onClick={onClose}>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -261,8 +260,8 @@ const KRiwayatNotificationFailed = () => {
       </div>
       <button
         type="button"
-        className="transition duration-500 mt-10 p-2 w-40 inline-block text-base shadow-red-600 drop-shadow-md rounded-xl border-2 border-red-600 bg-white text-red-600 font-bold hover:bg-red-600 hover:text-white"
-        onClick={() => goToDashboard("/dashboard")}
+        className="transition duration-500 mt-10 p-2 px-8 text-base shadow-red-600 drop-shadow-md rounded-xl border-2 border-red-600 bg-white text-red-600 font-bold hover:bg-red-600 hover:text-white"
+        onClick={() => goToDashboard("/KaryawanDashboard")}
       >
         Dashboard
       </button>
