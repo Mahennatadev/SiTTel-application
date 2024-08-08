@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const LoginComp = () => {
-  const goToLanding = useNavigate()
+  const goToLanding = useNavigate();
 
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -16,7 +16,6 @@ const LoginComp = () => {
   const handleEmailChange = (e) => {
     setEmail(e.target.value);
   };
-
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -145,7 +144,7 @@ const LoginComp = () => {
             <button
               type="button"
               className="transition duration-500 inline-block rounded-full shadow-red-600 drop-shadow-md border-2 border-red-600 p-4 text-red-600 hover:bg-red-600 hover:text-white focus:outline-none focus:ring active:bg-red-500"
-              onClick={() => goToLanding('/')}
+              onClick={() => goToLanding("/")}
             >
               <span className="sr-only"> Kembali </span>
 
@@ -195,10 +194,14 @@ const LoginComp = () => {
                   autoComplete="email"
                   value={email}
                   onChange={handleEmailChange}
-                  className="w-full rounded-xl text-black border border-gray-200 p-5 shadow-sm"
+                  className="peer w-full rounded-xl text-black border border-gray-200 p-5 shadow-sm bg-transparent placeholder-transparent"
                   placeholder="Alamat Email"
                   required
                 />
+
+                <span class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white text-xs p-2 text-gray-400 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-xs">
+                  Alamat Email
+                </span>
               </div>
             </div>
 
@@ -213,11 +216,16 @@ const LoginComp = () => {
                   type={passwordVisible ? "text" : "password"}
                   value={password}
                   id="password"
-                  className="w-full rounded-xl text-black border border-gray-200 p-5 shadow-sm"
+                  className="peer w-full rounded-xl text-black border border-gray-200 p-5 shadow-sm bg-transparent placeholder-transparent"
                   placeholder="Password"
                   onChange={(e) => setPassword(e.target.value)}
                   required
                 />
+
+                <span class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white text-xs p-2 text-gray-400 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-xs">
+                  Password
+                </span>
+
                 <span
                   className="absolute inset-y-0 end-0 grid place-content-center px-5"
                   onClick={togglePasswordVisibility}

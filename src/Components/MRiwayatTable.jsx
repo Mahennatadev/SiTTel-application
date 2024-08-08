@@ -1,8 +1,13 @@
 import { useState } from "react";
 import React from "react";
 import MRiwayatPagination from "./MRiwayatPagination";
+import MRiwayatNotificationDone from "./MRiwayatNotificationDone";
+import MRiwayatNotificationFailed from "./MRiwayatNotificationFailed";
 
-const MRiwayatTable = () => {
+const MRiwayatTable = ({ row }) => {
+  const [showNotification, setShowNotification] = useState(false);
+  const [status, setStatus] = useState(null); // "sukses" or "gagal"
+
   const tableData = [
     {
       id: "232372",
@@ -109,6 +114,16 @@ const MRiwayatTable = () => {
     }
   };
 
+  const handleButtonClick = (status) => {
+    setStatus(status);
+    setShowNotification(true);
+  };
+
+  const handleCloseNotification = () => {
+    setShowNotification(false);
+    setStatus(null);
+  };
+
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 6; // Jumlah baris per halaman
   const totalPages = Math.ceil(tableData.length / rowsPerPage);
@@ -200,7 +215,10 @@ const MRiwayatTable = () => {
                     </span>
                   </td>
                   <td className="border border-gray-100 py-3 px-2 text-blue-700">
-                    <button className="flex items-center gap-2">
+                    <button
+                      className="flex items-center gap-2"
+                      onClick={() => handleButtonClick(row.status)}
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
@@ -233,6 +251,16 @@ const MRiwayatTable = () => {
           onPageChange={handlePageChange}
         />
       </div>
+
+      {showNotification && (
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+          {status === "Selesai" ? (
+            <MRiwayatNotificationDone onClose={handleCloseNotification} />
+          ) : (
+            <MRiwayatNotificationFailed onClose={handleCloseNotification} />
+          )}
+        </div>
+      )}
     </div>
   );
 };
