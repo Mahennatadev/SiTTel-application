@@ -144,8 +144,8 @@ const UnggahAbout = () => {
               </div>
             </div>
             <div className="form__Unggah">
-              <div className="flex flex-col justify-center items-center w-[586px] px-20 py-14 text-center border-2 border-dashed border-gray-300 bg-white rounded-2xl">
-                <div className="flex flex-col justify-center items-center max-w-full">
+              <div className="flex flex-col justify-center items-center w-[586px] h-[200px] px-20 py-14 text-center border-2 border-dashed border-gray-300 bg-white rounded-2xl">
+                <div className="flex flex-col justify-center items-center max-w-full h-full">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
@@ -238,7 +238,7 @@ const UnggahAbout = () => {
             </div>
           )}
         </div>
-        <div className="unggah__illustration flex items-center h-auto w-auto">
+        <div className="unggah__illustration flex items-center h-auto w-auto fixed top-1/2 transform -translate-y-1/2 right-36">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             data-name="Layer 1"
