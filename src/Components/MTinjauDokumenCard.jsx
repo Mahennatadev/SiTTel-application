@@ -1,7 +1,31 @@
 import React from "react";
 import exampleDoc from "../Assets/exampleDoc.png";
+import { useState } from "react";
 
 const MTinjauDokumenCard = () => {
+  const [selectedFiles, setSelectedFiles] = useState([]);
+
+  const handleFileChange = (event) => {
+    const files = Array.from(event.target.files);
+    const validFiles = files.filter((file) =>
+      file.type.match(/image\/(jpeg|png|gif|bmp|webp)/)
+    );
+
+    if (validFiles.length > 0) {
+      setSelectedFiles((prevFiles) => [...prevFiles, ...validFiles]);
+    } else {
+      alert(
+        "File yang diperbolehkan hanya file gambar seperti JPG, PNG, GIF, BMP, atau WEBP"
+      );
+    }
+  };
+
+  const handleRemoveFile = (fileToRemove) => {
+    setSelectedFiles((prevFiles) =>
+      prevFiles.filter((file) => file !== fileToRemove)
+    );
+  };
+
   return (
     <div className="doc__container mx-36 border border-gray-200 mt-8">
       <div className="doc__header flex justify-between items-center px-8 py-5">
@@ -38,13 +62,16 @@ const MTinjauDokumenCard = () => {
           <p className="doc__date text-black font-medium text-base bg-gray-100 border border-transparent p-1 rounded-lg">
             Tanggal Pengajuan: <span className="font-normal">24 Juli 2024</span>
           </p>
+
           <p className="doc__sender text-black font-medium text-base bg-gray-100 border border-transparent p-1 rounded-lg">
             Nama Pengirim: <span className="font-normal">Rina Susanti</span>
           </p>
+
           <p className="doc__title text-black font-medium text-base bg-gray-100 border border-transparent p-1 rounded-lg">
             Judul Dokumen:{" "}
             <span className="font-normal">Dokumen Kerja Praktek</span>
           </p>
+
           <p className="doc__type text-black font-medium text-base bg-gray-100 border border-transparent p-1 rounded-lg">
             Jenis Keperluan:{" "}
             <span className="font-normal">Surat Rekomendasi</span>
@@ -73,7 +100,98 @@ const MTinjauDokumenCard = () => {
             <p className="signature__caption italic pt-6 text-center text-sm">
               drag and drop file
             </p>
-            {/* upload */}
+
+            <div className="flex flex-col mt-4 justify-center items-center h-[200px] px-20 py-14 text-center border-2 border-dashed border-gray-300 bg-white rounded-2xl">
+              <div className="flex flex-col justify-center items-center max-w-full h-full">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.25}
+                  stroke="currentColor"
+                  className="w-12 h-12 text-black"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 16.5V9.75m0 0 3 3m-3-3-3 3M6.75 19.5a4.5 4.5 0 0 1-1.41-8.775 5.25 5.25 0 0 1 10.233-2.33 3 3 0 0 1 3.758 3.848A3.752 3.752 0 0 1 18 19.5H6.75Z"
+                  />
+                </svg>
+
+                <label
+                  htmlFor="file-upload"
+                  className="mt-1 cursor-pointer text-gray-400"
+                >
+                  Telusuri tanda tangan anda
+                </label>
+                <input
+                  id="file-upload"
+                  type="file"
+                  className="hidden"
+                  aria-label="Upload file"
+                  accept="image/jpeg,image/png,image/gif,image/bmp,image/webp"
+                  multiple
+                  onChange={handleFileChange}
+                />
+              </div>
+
+              {selectedFiles.length > 0 && (
+                <div className="mt-4 flex flex-col space-y-2">
+                  {selectedFiles.map((file, index) => (
+                    <div key={index} className="flex items-center space-x-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        strokeWidth={1.5}
+                        stroke="currentColor"
+                        className="w-6 h-6 flex-shrink-0"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+                        />
+                      </svg>
+
+                      <span className="text-black font-medium text-center">
+                        {file.name}
+                      </span>
+
+                      <button
+                        type="button"
+                        className="ml-2 text-red-500 hover:text-red-700"
+                        onClick={() => handleRemoveFile(file)}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={1.5}
+                          stroke="currentColor"
+                          className="w-6 h-6 flex-shrink-0"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="m14.74 9-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 0 1-2.244 2.077H8.084a2.25 2.25 0 0 1-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 0 0-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 0 1 3.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 0 0-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 0 0-7.5 0"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            <div className="signature__button flex items-center justify-center">
+              <button
+                type="button"
+                className="transition duration-300 items-center px-8 py-3 mt-8 text-xl font-black text-red-600 whitespace-nowrap bg-white rounded-2xl border-2 border-red-600 hover:bg-red-600 hover:text-white max-md:px-5 max-md:mt-10"
+              >
+                Unggah
+              </button>
+            </div>
           </div>
         </div>
       </div>

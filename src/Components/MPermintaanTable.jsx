@@ -2,6 +2,7 @@ import { useState } from "react";
 import React from "react";
 import MPermintaanPagination from "./MPermintaanPagination";
 
+
 const MPermintaanTable = () => {
   const tableData = [
     {
