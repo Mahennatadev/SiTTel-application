@@ -4,96 +4,117 @@ import MPermintaanPagination from "./MPermintaanPagination";
 
 
 const MPermintaanTable = () => {
+
   const tableData = [
     {
       id: "232372",
       date: "10 Juli 2024",
       sender: "Rina",
-      document: "Dokumen-A",
+      name: "Dokumen-A",
+      title: "Dokumen-A",
       type: "Keperluan-1",
       status: "Menunggu",
       check: "Dokumen-A",
+      fileUrl: "../Assets/exampleDoc.png",
     },
     {
       id: "945847",
       date: "15 Juli 2024",
       sender: "Beni",
-      document: "Dokumen-B",
+      name: "Dokumen-B",
+      title: "Dokumen-A",
       type: "Keperluan-2",
       status: "Menunggu",
       check: "Dokumen-B",
+      fileUrl: "../Assets/exampleDoc.png",
     },
     {
       id: "027374",
       date: "16 Juli 2024",
       sender: "Lina",
-      document: "Dokumen-C",
+      name: "Dokumen-C",
+      title: "Dokumen-A",
       type: "Keperluan-3",
       status: "Menunggu",
       check: "Dokumen-C",
+      fileUrl: "../Assets/exampleDoc.png",
     },
     {
       id: "974543",
       date: "17 Juli 2024",
       sender: "Azhar",
-      document: "Dokumen-D",
+      name: "Dokumen-D",
+      title: "Dokumen-A",
       type: "Keperluan-4",
       status: "Menunggu",
       check: "Dokumen-D",
+      fileUrl: "../Assets/exampleDoc.png",
     },
     {
       id: "023824",
       date: "20 Juli 2024",
       sender: "Beddy",
-      document: "Dokumen-E",
+      name: "Dokumen-E",
+      title: "Dokumen-A",
       type: "Keperluan-5",
       status: "Menunggu",
       check: "Dokumen-E",
+      fileUrl: "../Assets/exampleDoc.png",
     },
     {
       id: "232372",
       date: "10 Juli 2024",
       sender: "Rina",
-      document: "Dokumen-A",
+      name: "Dokumen-A",
+      title: "Dokumen-A",
       type: "Keperluan-1",
       status: "Menunggu",
       check: "Dokumen-F",
+      fileUrl: "../Assets/exampleDoc.png",
     },
     {
       id: "945847",
       date: "15 Juli 2024",
       sender: "Beni",
-      document: "Dokumen-B",
+      name: "Dokumen-B",
+      title: "Dokumen-A",
       type: "Keperluan-2",
       status: "Menunggu",
       check: "Dokumen-G",
+      fileUrl: "../Assets/exampleDoc.png",
     },
     {
       id: "027374",
       date: "16 Juli 2024",
       sender: "Lina",
-      document: "Dokumen-C",
+      name: "Dokumen-C",
+      title: "Dokumen-A",
       type: "Keperluan-3",
       status: "Menunggu",
       check: "Dokumen-H",
+      fileUrl: "../Assets/exampleDoc.png",
     },
     {
       id: "974543",
       date: "17 Juli 2024",
       sender: "Azhar",
-      document: "Dokumen-D",
+      name: "Dokumen-D",
+      title: "Dokumen-A",
       type: "Keperluan-4",
       status: "Menunggu",
       check: "Dokumen-I",
+      fileUrl: "../Assets/exampleDoc.png",
     },
     {
       id: "023824",
       date: "20 Juli 2024",
       sender: "Beddy",
-      document: "Dokumen-E",
+      name: "Dokumen-E",
+      title: "Dokumen-A",
       type: "Keperluan-5",
       status: "Menunggu",
       check: "Dokumen-J",
+      fileUrl: "../Assets/exampleDoc.png",
     },
   ];
 
@@ -123,6 +144,10 @@ const MPermintaanTable = () => {
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
+
+  // const handleCheckClick = (id) => {
+  //   goToTinjau(`/manajerTinjauDokumen/${id}`);
+  // };
 
   return (
     <div className="mx-36 mt-4">
@@ -216,7 +241,6 @@ const MPermintaanTable = () => {
                           d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
                         />
                       </svg>
-
                       {row.check}
                     </button>
                   </td>

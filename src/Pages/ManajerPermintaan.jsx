@@ -4,6 +4,7 @@ import MPermintaanComp from '../Components/MPermintaanComp'
 import MPermintaanTable from '../Components/MPermintaanTable'
 
 const ManajerPermintaan = () => {
+
   return (
     <div>
       <MNavbar />

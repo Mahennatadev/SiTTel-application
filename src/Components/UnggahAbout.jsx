@@ -238,7 +238,7 @@ const UnggahAbout = () => {
             </div>
           )}
         </div>
-        <div className="unggah__illustration flex items-center h-auto w-auto fixed top-1/2 transform -translate-y-1/2 right-36">
+        <div className="unggah__illustration flex items-center h-auto w-auto">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             data-name="Layer 1"
