@@ -13,6 +13,7 @@ import ManajerDashboardPre from './Pages/ManajerDashboardPre';
 import ManajerPermintaan from './Pages/ManajerPermintaan';
 import ManajerRiwayat from './Pages/ManajerRiwayat';
 import MTinjauDokumen from './Components/MTinjauDokumen';
+import ReviewDocumentPage from './Components/ReviewDocumentPage';
 
 
 function App() {
@@ -31,6 +32,7 @@ function App() {
         <Route path='/manajerPermintaan' element={<ManajerPermintaan />} />
         <Route path='/manajerRiwayat' element={<ManajerRiwayat />} />
         <Route path='/manajerTinjauDokumen' element={<MTinjauDokumen />} />
+        <Route path='/review-document' element={<ReviewDocumentPage />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>

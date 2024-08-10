@@ -2,7 +2,7 @@ import React from "react";
 import exampleDoc from "../Assets/exampleDoc.png";
 import { useState } from "react";
 
-const MTinjauDokumenCard = () => {
+const MTinjauDokumenCard = ({ documentData }) => {
   const [selectedFiles, setSelectedFiles] = useState([]);
 
   const handleFileChange = (event) => {
@@ -60,21 +60,21 @@ const MTinjauDokumenCard = () => {
 
         <div className="doc__detail py-12 mx-auto w-[400px] items-center space-y-2">
           <p className="doc__date text-black font-medium text-base bg-gray-100 border border-transparent p-1 rounded-lg">
-            Tanggal Pengajuan: <span className="font-normal">24 Juli 2024</span>
+            Tanggal Pengajuan: <span className="font-normal">{documentData.date}</span>
           </p>
 
           <p className="doc__sender text-black font-medium text-base bg-gray-100 border border-transparent p-1 rounded-lg">
-            Nama Pengirim: <span className="font-normal">Rina Susanti</span>
+            Nama Pengirim: <span className="font-normal">{documentData.sender}</span>
           </p>
 
           <p className="doc__title text-black font-medium text-base bg-gray-100 border border-transparent p-1 rounded-lg">
             Judul Dokumen:{" "}
-            <span className="font-normal">Dokumen Kerja Praktek</span>
+            <span className="font-normal">{documentData.title}</span>
           </p>
 
           <p className="doc__type text-black font-medium text-base bg-gray-100 border border-transparent p-1 rounded-lg">
             Jenis Keperluan:{" "}
-            <span className="font-normal">Surat Rekomendasi</span>
+            <span className="font-normal">{documentData.type}</span>
           </p>
 
           <div className="doc__signature pt-12 flex gap-2">

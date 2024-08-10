@@ -3,7 +3,7 @@ import React from "react";
 import MPermintaanPagination from "./MPermintaanPagination";
 
 
-const MPermintaanTable = () => {
+const MPermintaanTable = ({ onCheckClick }) => {
 
   const tableData = [
     {
@@ -226,7 +226,7 @@ const MPermintaanTable = () => {
                     </span>
                   </td>
                   <td className="border border-gray-100 py-3 px-2 text-blue-700">
-                    <button className="flex items-center gap-2">
+                    <button className="flex items-center gap-2" onClick={() => onCheckClick(row.id)}>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
