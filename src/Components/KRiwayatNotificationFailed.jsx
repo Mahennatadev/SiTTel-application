@@ -16,7 +16,7 @@ const KRiwayatNotificationFailed = ({ onClose }) => {
             Perhatikan catatan yang diberikan
           </p>
 
-          <div className="done__catatan mt-4 border h-32 border-gray-400 bg-white rounded-2xl">
+          <div className="done__catatan mt-4 border-2 h-32 border-gray-300 bg-white rounded-2xl">
             <p className="isi__catatan text-black p-4 font-medium">Isi Catatan...</p>
           </div>
         </div>

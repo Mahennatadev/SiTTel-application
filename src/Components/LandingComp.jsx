@@ -22,6 +22,7 @@ const LandingComp = () => {
         </p>
 
         <button
+          type="button"
           onClick={() => goToLogin("/login")}
           className="landing__button transition duration-500 px-16 py-5 mt-16 max-w-full text-2xl font-bold text-red-600 whitespace-nowrap bg-white rounded-3xl border-2 border-red-600 w-[324px] hover:bg-red-600 hover:text-white transform hover:-translate-y-1 hover:scale-110 active:bg-red-500 max-md:px-5 max-md:mt-10"
         >

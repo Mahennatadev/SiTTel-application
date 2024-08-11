@@ -1,8 +1,10 @@
 import React from "react";
 import exampleDoc from "../Assets/exampleDoc.png";
 import { useState } from "react";
+import MTinjauRejectedModal from "./MTinjauRejectedModal";
 
 const MTinjauDokumenCard = ({ documentData }) => {
+  const [showNotification, setShowNotification] = useState(false);
   const [selectedFiles, setSelectedFiles] = useState([]);
 
   const handleFileChange = (event) => {
@@ -26,12 +28,19 @@ const MTinjauDokumenCard = ({ documentData }) => {
     );
   };
 
+  const handleButtonClick = () => {
+    setShowNotification(true);
+  };
+  const handleCloseNotification = () => {
+    setShowNotification(false);
+  };
+
   return (
     <div className="doc__container mx-36 border border-gray-200 mt-8">
       <div className="doc__header flex justify-between items-center px-8 py-5">
         <div className="doc__name">
           <p className="file__name text-black font-medium text-base">
-            Laporan-Kerja-Praktik.pdf
+            {documentData.name}
           </p>
         </div>
 
@@ -39,17 +48,27 @@ const MTinjauDokumenCard = ({ documentData }) => {
           <div>
             <button
               type="button"
-              className="transition duration-500 py-2 px-14 inline-block text-lg shadow-red-600 drop-shadow-md rounded-2xl border-2 border-red-600 bg-red-600 p-5 text-white font-bold ease-in-out hover:bg-white hover:text-red-600"
+              className="review__buttont ransition duration-500 py-2 px-14 inline-block text-lg shadow-red-600 drop-shadow-md rounded-2xl border-2 border-red-600 bg-red-600 p-5 text-white font-bold ease-in-out hover:bg-white hover:text-red-600"
+              onClick={handleButtonClick}
             >
               Tolak
             </button>
           </div>
 
           <div>
-            <button className="landing__button px-14 py-2 text-lg font-bold text-white whitespace-nowrap bg-gray-300 rounded-2xl border-2 border-transparent cursor-not-allowed max-md:px-5 max-md:mt-10">
+            <button
+              type="button"
+              className="review__button px-14 py-2 text-lg font-bold text-white whitespace-nowrap bg-gray-300 rounded-2xl border-2 border-transparent cursor-not-allowed max-md:px-5 max-md:mt-10"
+            >
               Tandatangani
             </button>
           </div>
+
+          {showNotification && (
+            <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50">
+              <MTinjauRejectedModal onClose={handleCloseNotification} />
+            </div>
+          )}
         </div>
       </div>
 
@@ -60,11 +79,13 @@ const MTinjauDokumenCard = ({ documentData }) => {
 
         <div className="doc__detail py-12 mx-auto w-[400px] items-center space-y-2">
           <p className="doc__date text-black font-medium text-base bg-gray-100 border border-transparent p-1 rounded-lg">
-            Tanggal Pengajuan: <span className="font-normal">{documentData.date}</span>
+            Tanggal Pengajuan:{" "}
+            <span className="font-normal">{documentData.date}</span>
           </p>
 
           <p className="doc__sender text-black font-medium text-base bg-gray-100 border border-transparent p-1 rounded-lg">
-            Nama Pengirim: <span className="font-normal">{documentData.sender}</span>
+            Nama Pengirim:{" "}
+            <span className="font-normal">{documentData.sender}</span>
           </p>
 
           <p className="doc__title text-black font-medium text-base bg-gray-100 border border-transparent p-1 rounded-lg">

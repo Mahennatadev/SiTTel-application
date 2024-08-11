@@ -12,7 +12,7 @@ const MRiwayatNotificationFailed = ({ onClose }) => {
             Dokumen telah ditolak karena <br />terdapat kesalahan di dalamnya
           </p>
 
-          <div className="done__catatan mt-4 border h-32 border-gray-400 bg-white rounded-2xl">
+          <div className="done__catatan mt-4 h-32 border-gray-300 border-2 bg-white rounded-2xl">
             <p className="isi__catatan text-black p-4 font-medium">
               Isi Catatan...
             </p>
