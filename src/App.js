@@ -14,6 +14,7 @@ import ManajerPermintaan from './Pages/ManajerPermintaan';
 import ManajerRiwayat from './Pages/ManajerRiwayat';
 import MTinjauDokumen from './Components/MTinjauDokumen';
 import ReviewDocumentPage from './Components/ReviewDocumentPage';
+import MCompleteTandatangani from './Components/MCompleteTandatangani';
 
 
 function App() {
@@ -33,6 +34,7 @@ function App() {
         <Route path='/manajerRiwayat' element={<ManajerRiwayat />} />
         <Route path='/manajerTinjauDokumen' element={<MTinjauDokumen />} />
         <Route path='/review-document' element={<ReviewDocumentPage />} />
+        <Route path='/review-succes-document' element={<MCompleteTandatangani />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>

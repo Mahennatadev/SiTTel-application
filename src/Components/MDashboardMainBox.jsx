@@ -1,11 +1,6 @@
 import { useState, useEffect } from "react";
 import React from "react";
-
-const dummyData = {
-  menunggu: 10,
-  ditandatangani: 5,
-  ditolak: 2,
-};
+import { tableData } from "./DummyData";
 
 const MDashboardMainBox = () => {
   const [documentCounts, setDocumentCounts] = useState({
@@ -15,23 +10,43 @@ const MDashboardMainBox = () => {
   });
 
   useEffect(() => {
-    // Fungsi untuk fetch data dari dummy data
-    const fetchDocumentCounts = async () => {
-      try {
-        // Simulasi fetch data
-        // Pada aplikasi nyata, ganti ini dengan fetch dari API endpoint
-        setDocumentCounts(dummyData);
-      } catch (error) {
-        console.error("Error fetching document counts:", error);
-      }
+    // Fungsi untuk menghitung jumlah dokumen berdasarkan status
+    const countDocumentsByStatus = (data) => {
+      const counts = data.reduce(
+        (acc, row) => {
+          if (row.status === "Menunggu") acc.menunggu += 1;
+          if (row.status === "Selesai") acc.ditandatangani += 1;
+          if (row.status === "Ditolak") acc.ditolak += 1;
+          return acc;
+        },
+        { menunggu: 0, ditandatangani: 0, ditolak: 0 }
+      );
+      return counts;
     };
 
-    fetchDocumentCounts();
+    // Menghitung jumlah dokumen dari data dummy
+    const documentCounts = countDocumentsByStatus(tableData);
+    setDocumentCounts(documentCounts);
   }, []);
+
+  // useEffect(() => {
+  //   // Fungsi untuk fetch data dari dummy data
+  //   const fetchDocumentCounts = async () => {
+  //     try {
+  //       // Simulasi fetch data
+  //       // Pada aplikasi nyata, ganti ini dengan fetch dari API endpoint
+  //       setDocumentCounts(dummyData);
+  //     } catch (error) {
+  //       console.error("Error fetching document counts:", error);
+  //     }
+  //   };
+
+  //   fetchDocumentCounts();
+  // }, []);
 
   return (
     <div className="dashboard__box flex flex-shrink-0 gap-4 place-content-center mt-10 max-md:ml-0 max-md:w-full">
-      <div className="box__diproses grid grid-cols-2 transition duration-300 px-8 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
+      <div className="box__diproses grid grid-cols-2 transition shadow-xl duration-300 px-8 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
         <div className="box__text space-y-1">
           <h1 className="box__title text-black font-bold text-2xl">Menunggu</h1>
           <p className="box__subtitle text-black text-base font-normal">
@@ -259,7 +274,7 @@ const MDashboardMainBox = () => {
         </div>
       </div>
 
-      <div className="box__selesai grid grid-cols-2 transition duration-300 px-8 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
+      <div className="box__selesai grid grid-cols-2 transition shadow-xl duration-300 px-8 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
         <div className="box__text space-y-1">
           <h1 className="box__title text-black font-bold text-2xl">Selesai</h1>
           <p className="box__subtitle text-black text-base font-normal">
@@ -453,7 +468,7 @@ const MDashboardMainBox = () => {
         </div>
       </div>
 
-      <div className="box__ditolak grid grid-cols-2 transition duration-300 px-8 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
+      <div className="box__ditolak grid grid-cols-2 transition shadow-xl duration-300 px-8 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
         <div className="box__text space-y-1">
           <h1 className="box__title text-black font-bold text-2xl">Ditolak</h1>
           <p className="box__subtitle text-black text-base font-normal">

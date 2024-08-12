@@ -119,7 +119,7 @@ const MNavbar = () => {
               </div>
 
               {/* Notification-One */}
-              <div className="notification__menu px-4 py-4 flex items-start gap-6 rounded-2xl transition duration-300 border-transparent bg-white hover:bg-gray-300 cursor-pointer">
+              <div className="notification__menu px-4 py-4 flex items-start gap-6 transition duration-300 border-transparent bg-white hover:bg-gray-300 cursor-pointer">
                 <div className="notification__avatar flex-shrink-0 rounded-full border border-gray-300 w-10 h-10 bg-transparent overflow-hidden">
                   <img
                     className="object-cover w-full h-full"
@@ -141,7 +141,7 @@ const MNavbar = () => {
 
               {/* Notification-Two */}
               <div
-                className="notification__menu px-4 py-4 flex items-start rounded-2xl gap-6 transition duration-300 border-transparent bg-white hover:bg-gray-300 cursor-pointer"
+                className="notification__menu px-4 py-4 flex items-start rounded-b-2xl gap-6 transition duration-300 border-transparent bg-white hover:bg-gray-300 cursor-pointer"
                 onClick={goToPermintaan}
               >
                 <div className="notification__avatar flex-shrink-0 rounded-full border border-gray-300 w-10 h-10 bg-transparent overflow-hidden">

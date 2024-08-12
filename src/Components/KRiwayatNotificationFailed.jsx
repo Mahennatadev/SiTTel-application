@@ -1,9 +1,6 @@
 import React from "react";
-import { useNavigate } from "react-router-dom";
 
 const KRiwayatNotificationFailed = ({ onClose }) => {
-  const goToDashboard = useNavigate();
-
   return (
     <div className="riwayat__failednotification border-transparent bg-white rounded-2xl p-8">
       <div className="grid grid-cols-2 gap-4">
@@ -258,13 +255,6 @@ const KRiwayatNotificationFailed = ({ onClose }) => {
           </div>
         </div>
       </div>
-      <button
-        type="button"
-        className="transition duration-500 mt-10 p-2 px-8 text-base shadow-red-600 drop-shadow-md rounded-xl border-2 border-red-600 bg-white text-red-600 font-bold hover:bg-red-600 hover:text-white"
-        onClick={() => goToDashboard("/KaryawanDashboard")}
-      >
-        Dashboard
-      </button>
     </div>
   );
 };

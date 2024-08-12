@@ -1,49 +1,7 @@
 import React from "react";
+import { tableKaryawanData } from './DummyData';
 
 const DashboardTable = () => {
-  const tableData = [
-    {
-      id: "232372",
-      date: "20 Juli 2024",
-      document: "Dokumen-A",
-      type: "Keperluan-1",
-      recipient: "Eko",
-      status: "Diproses",
-    },
-    {
-      id: "945847",
-      date: "17 Juli 2024",
-      document: "Dokumen-B",
-      type: "Keperluan-2",
-      recipient: "Erwin",
-      status: "Diproses",
-    },
-    {
-      id: "027374",
-      date: "16 Juli 2024",
-      document: "Dokumen-C",
-      type: "Keperluan-3",
-      recipient: "Deddy",
-      status: "Diproses",
-    },
-    {
-      id: "974543",
-      date: "15 Juli 2024",
-      document: "Dokumen-D",
-      type: "Keperluan-4",
-      recipient: "Budi",
-      status: "Diproses",
-    },
-    {
-      id: "023824",
-      date: "10 Juli 2024",
-      document: "Dokumen-E",
-      type: "Keperluan-5",
-      recipient: "Bachtiar",
-      status: "Diajukan",
-    },
-  ];
-
   const getStatusLabel = (status) => {
     switch (status) {
       case "Selesai":
@@ -58,6 +16,13 @@ const DashboardTable = () => {
         return "";
     }
   };
+
+  const filterData = (data) => {
+    return data.filter(row => row.status === "Diajukan" || row.status === "Diproses").slice(0,5)
+  }
+
+  // Filter data menggunakan fungsi filterData
+  const filteredData = filterData(tableKaryawanData);
 
   return (
     <div className="table__cards mx-36 mt-1 p-6 bg-white shadow-lg rounded-lg">
@@ -78,7 +43,7 @@ const DashboardTable = () => {
             </tr>
           </thead>
           <tbody>
-            {tableData.map((row, index) => (
+            {filteredData.map((row, index) => (
               <tr key={index}>
                 <td className="border border-gray-100 flex items-center gap-2 py-3 px-2 font-semibold">
                   <svg

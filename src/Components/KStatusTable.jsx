@@ -1,131 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import KStatusPagination from "./KStatusPagination";
+import { tableKaryawanData } from './DummyData';
 
 const KStatusTable = () => {
-  const tableData = [
-    {
-      id: "232372",
-      date: "20 Juli 2024",
-      document: "Dokumen-A",
-      type: "Keperluan-1",
-      recipient: "Eko",
-      status: "Diproses",
-    },
-    {
-      id: "945847",
-      date: "17 Juli 2024",
-      document: "Dokumen-B",
-      type: "Keperluan-2",
-      recipient: "Erwin",
-      status: "Diproses",
-    },
-    {
-      id: "027374",
-      date: "16 Juli 2024",
-      document: "Dokumen-C",
-      type: "Keperluan-3",
-      recipient: "Deddy",
-      status: "Diproses",
-    },
-    {
-      id: "974543",
-      date: "15 Juli 2024",
-      document: "Dokumen-D",
-      type: "Keperluan-4",
-      recipient: "Budi",
-      status: "Diproses",
-    },
-    {
-      id: "023824",
-      date: "10 Juli 2024",
-      document: "Dokumen-E",
-      type: "Keperluan-5",
-      recipient: "Bachtiar",
-      status: "Diajukan",
-    },
-    {
-      id: "023824",
-      date: "10 Juli 2024",
-      document: "Dokumen-E",
-      type: "Keperluan-5",
-      recipient: "Bachtiar",
-      status: "Diajukan",
-    },
-    {
-      id: "023824",
-      date: "10 Juli 2024",
-      document: "Dokumen-E",
-      type: "Keperluan-5",
-      recipient: "Bachtiar",
-      status: "Diajukan",
-    },
-    {
-      id: "023824",
-      date: "10 Juli 2024",
-      document: "Dokumen-E",
-      type: "Keperluan-5",
-      recipient: "Bachtiar",
-      status: "Diajukan",
-    },
-    {
-      id: "023824",
-      date: "10 Juli 2024",
-      document: "Dokumen-E",
-      type: "Keperluan-5",
-      recipient: "Bachtiar",
-      status: "Diajukan",
-    },
-    {
-      id: "232372",
-      date: "20 Juli 2024",
-      document: "Dokumen-A",
-      type: "Keperluan-1",
-      recipient: "Eko",
-      status: "Diajukan",
-    },
-    {
-      id: "945847",
-      date: "17 Juli 2024",
-      document: "Dokumen-B",
-      type: "Keperluan-2",
-      recipient: "Erwin",
-      status: "Diajukan",
-    },
-    {
-      id: "027374",
-      date: "16 Juli 2024",
-      document: "Dokumen-C",
-      type: "Keperluan-3",
-      recipient: "Deddy",
-      status: "Diajukan",
-    },
-    {
-      id: "974543",
-      date: "15 Juli 2024",
-      document: "Dokumen-D",
-      type: "Keperluan-4",
-      recipient: "Budi",
-      status: "Diajukan",
-    },
-    {
-      id: "023824",
-      date: "10 Juli 2024",
-      document: "Dokumen-E",
-      type: "Keperluan-5",
-      recipient: "Bachtiar",
-      status: "Diajukan",
-    },
-    {
-      id: "023824",
-      date: "10 Juli 2024",
-      document: "Dokumen-E",
-      type: "Keperluan-5",
-      recipient: "Bachtiar",
-      status: "Diajukan",
-    },
-  ];
-
   const getStatusLabel = (status) => {
     switch (status) {
       case "Selesai":
@@ -143,14 +21,20 @@ const KStatusTable = () => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 8; // Jumlah baris per halaman
-  const totalPages = Math.ceil(tableData.length / rowsPerPage);
+
+  // Filter data hanya untuk status "Diajukan" dan "Diproses"
+  const filteredData = tableKaryawanData.filter(
+    (row) => row.status === "Diajukan" || row.status === "Diproses"
+  );
+
+  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
   // Mendapatkan data tabel untuk halaman saat ini
-  const currentTableData = tableData.slice(
+  const currentTableData = filteredData.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );

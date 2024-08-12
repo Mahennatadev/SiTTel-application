@@ -3,63 +3,11 @@ import { useState } from "react";
 import KRiwayatPagination from "./KRiwayatPagination";
 import KRiwayatNotificationDone from "./KRiwayatNotificationDone";
 import KRiwayatNotificationFailed from "./KRiwayatNotificationFailed";
+import { tableKaryawanData } from "./DummyData";
 
 const KRiwayatTable = ({ row }) => {
   const [showNotification, setShowNotification] = useState(false);
   const [status, setStatus] = useState(null); // "sukses" or "gagal"
-
-  const tableData = [
-    {
-      id: "232372",
-      date: "20 Juli 2024",
-      done: "20 Juli 2024",
-      document: "Dokumen-A",
-      type: "Keperluan-1",
-      recipient: "Eko",
-      status: "Selesai",
-      check: "Dokumen-A",
-    },
-    {
-      id: "945847",
-      date: "17 Juli 2024",
-      done: "17 Juli 2024",
-      document: "Dokumen-B",
-      type: "Keperluan-2",
-      recipient: "Erwin",
-      status: "Ditolak",
-      check: "Dokumen-B",
-    },
-    {
-      id: "027374",
-      date: "16 Juli 2024",
-      done: "16 Juli 2024",
-      document: "Dokumen-C",
-      type: "Keperluan-3",
-      recipient: "Deddy",
-      status: "Selesai",
-      check: "Dokumen-C",
-    },
-    {
-      id: "974543",
-      date: "15 Juli 2024",
-      done: "15 Juli 2024",
-      document: "Dokumen-D",
-      type: "Keperluan-4",
-      recipient: "Budi",
-      status: "Selesai",
-      check: "Dokumen-D",
-    },
-    {
-      id: "023824",
-      date: "10 Juli 2024",
-      done: "10 Juli 2024",
-      document: "Dokumen-E",
-      type: "Keperluan-5",
-      recipient: "Bachtiar",
-      status: "Ditolak",
-      check: "Dokumen-E",
-    },
-  ];
 
   const getStatusLabel = (status) => {
     switch (status) {
@@ -88,14 +36,20 @@ const KRiwayatTable = ({ row }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 5; // Jumlah baris per halaman
-  const totalPages = Math.ceil(tableData.length / rowsPerPage);
+
+  // Filter data hanya untuk status "Diajukan" dan "Diproses"
+  const filteredData = tableKaryawanData.filter(
+    (row) => row.status === "Selesai" || row.status === "Ditolak"
+  );
+
+  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
   // Mendapatkan data tabel untuk halaman saat ini
-  const currentTableData = tableData.slice(
+  const currentTableData = filteredData.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
@@ -129,7 +83,7 @@ const KRiwayatTable = ({ row }) => {
                   Status
                 </th>
                 <th className="w-[180px] text-left py-3 px-2 border border-gray-100">
-                  Detail
+                  Detail Dokumen
                 </th>
               </tr>
             </thead>
@@ -201,7 +155,7 @@ const KRiwayatTable = ({ row }) => {
                           d="m9 13.5 3 3m0 0 3-3m-3 3v-6m1.06-4.19-2.12-2.12a1.5 1.5 0 0 0-1.061-.44H4.5A2.25 2.25 0 0 0 2.25 6v12a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9a2.25 2.25 0 0 0-2.25-2.25h-5.379a1.5 1.5 0 0 1-1.06-.44Z"
                         />
                       </svg>
-                      {row.check}
+                      Detail
                     </button>
                   </td>
                 </tr>

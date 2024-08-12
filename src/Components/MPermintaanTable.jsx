@@ -20,14 +20,19 @@ const MPermintaanTable = ({ onCheckClick }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 10; // Jumlah baris per halaman
-  const totalPages = Math.ceil(tableData.length / rowsPerPage);
+
+  const filteredData = tableData.filter(
+    (row) => row.status === "Menunggu"
+  );
+
+  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
   // Mendapatkan data tabel untuk halaman saat ini
-  const currentTableData = tableData.slice(
+  const currentTableData = filteredData.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );

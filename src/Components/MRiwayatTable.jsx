@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { tableData } from "./DummyData";
 import React from "react";
 import MRiwayatPagination from "./MRiwayatPagination";
 import MRiwayatNotificationDone from "./MRiwayatNotificationDone";
@@ -7,99 +8,6 @@ import MRiwayatNotificationFailed from "./MRiwayatNotificationFailed";
 const MRiwayatTable = ({ row }) => {
   const [showNotification, setShowNotification] = useState(false);
   const [status, setStatus] = useState(null); // "sukses" or "gagal"
-
-  const tableData = [
-    {
-      id: "232372",
-      date: "10 Juli 2024",
-      sender: "Rina",
-      document: "Dokumen-A",
-      type: "Keperluan-1",
-      status: "Selesai",
-      check: "Dokumen-A",
-    },
-    {
-      id: "945847",
-      date: "15 Juli 2024",
-      sender: "Beni",
-      document: "Dokumen-B",
-      type: "Keperluan-2",
-      status: "Ditolak",
-      check: "Dokumen-B",
-    },
-    {
-      id: "027374",
-      date: "16 Juli 2024",
-      sender: "Lina",
-      document: "Dokumen-C",
-      type: "Keperluan-3",
-      status: "Selesai",
-      check: "Dokumen-C",
-    },
-    {
-      id: "974543",
-      date: "17 Juli 2024",
-      sender: "Azhar",
-      document: "Dokumen-D",
-      type: "Keperluan-4",
-      status: "Selesai",
-      check: "Dokumen-D",
-    },
-    {
-      id: "023824",
-      date: "20 Juli 2024",
-      sender: "Beddy",
-      document: "Dokumen-E",
-      type: "Keperluan-5",
-      status: "Selesai",
-      check: "Dokumen-E",
-    },
-    {
-      id: "232372",
-      date: "10 Juli 2024",
-      sender: "Rina",
-      document: "Dokumen-A",
-      type: "Keperluan-1",
-      status: "Ditolak",
-      check: "Dokumen-F",
-    },
-    {
-      id: "945847",
-      date: "15 Juli 2024",
-      sender: "Beni",
-      document: "Dokumen-B",
-      type: "Keperluan-2",
-      status: "Selesai",
-      check: "Dokumen-G",
-    },
-    {
-      id: "027374",
-      date: "16 Juli 2024",
-      sender: "Lina",
-      document: "Dokumen-C",
-      type: "Keperluan-3",
-      status: "Selesai",
-      check: "Dokumen-H",
-    },
-    {
-      id: "974543",
-      date: "17 Juli 2024",
-      sender: "Azhar",
-      document: "Dokumen-D",
-      type: "Keperluan-4",
-      status: "Selesai",
-      check: "Dokumen-I",
-    },
-    {
-      id: "023824",
-      date: "20 Juli 2024",
-      sender: "Beddy",
-      document: "Dokumen-E",
-      type: "Keperluan-5",
-      status: "Selesai",
-      check: "Dokumen-J",
-    },
-  ];
 
   const getStatusLabel = (status) => {
     switch (status) {
@@ -126,14 +34,18 @@ const MRiwayatTable = ({ row }) => {
 
   const [currentPage, setCurrentPage] = useState(1);
   const rowsPerPage = 6; // Jumlah baris per halaman
-  const totalPages = Math.ceil(tableData.length / rowsPerPage);
+
+  const filteredData = tableData.filter(
+    (row) => row.status === "Selesai" || row.status === "Ditolak"
+  )
+  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
   // Mendapatkan data tabel untuk halaman saat ini
-  const currentTableData = tableData.slice(
+  const currentTableData = filteredData.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
@@ -164,7 +76,7 @@ const MRiwayatTable = ({ row }) => {
                   Status
                 </th>
                 <th className="w-[180px] text-left py-3 px-2 border border-gray-100">
-                  Detail
+                  Detail Dokumen
                 </th>
               </tr>
             </thead>
@@ -234,7 +146,7 @@ const MRiwayatTable = ({ row }) => {
                         />
                       </svg>
 
-                      {row.check}
+                      Detail
                     </button>
                   </td>
                 </tr>

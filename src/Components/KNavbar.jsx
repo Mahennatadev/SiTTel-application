@@ -85,7 +85,7 @@ const KNavbar = () => {
             type="button"
             id="dropdownUserNotification"
             onClick={toggleNotificationDropdown}
-            className="flex items-center justify-center border border-transparent w-12 h-12 rounded-full hover:bg-gray-200 transition duration-300"
+            className="flex items-center justify-center border border-transparent w-12 h-12 hover:bg-gray-200 transition duration-300"
           >
             <span className="sr-only"> Notifikasi </span>
 
@@ -116,7 +116,7 @@ const KNavbar = () => {
               </div>
 
               {/* Notification-One */}
-              <div className="notification__menu px-4 py-4 flex items-start gap-6 rounded-2xl transition duration-300 border-transparent bg-white hover:bg-gray-300 cursor-pointer">
+              <div className="notification__menu px-4 py-4 flex items-start gap-6 transition duration-300 border-transparent bg-white hover:bg-gray-300 cursor-pointer">
                 <div className="notification__avatar flex-shrink-0 rounded-full border border-gray-300 w-10 h-10 bg-transparent overflow-hidden">
                   <img
                     className="object-cover w-full h-full"
@@ -137,7 +137,7 @@ const KNavbar = () => {
               </div>
 
               {/* Notification-Two */}
-              <div className="notification__menu px-4 py-4 flex items-start rounded-2xl gap-6 transition duration-300 border-transparent bg-white hover:bg-gray-300 cursor-pointer" onClick={goToRiwayat}>
+              <div className="notification__menu px-4 py-4 flex items-start rounded-b-2xl gap-6 transition duration-300 border-transparent bg-white hover:bg-gray-300 cursor-pointer" onClick={goToRiwayat}>
                 <div className="notification__avatar flex-shrink-0 rounded-full border border-gray-300 w-10 h-10 bg-transparent overflow-hidden">
                   <img
                     className="object-cover w-full h-full"

@@ -1,54 +1,7 @@
 import React from "react";
+import { tableData } from "./DummyData";
 
-const MDashboardTable = () => {
-  const tableData = [
-    {
-      id: "232372",
-      date: "10 Juli 2024",
-      sender: "Rina",
-      document: "Dokumen-A",
-      type: "Keperluan-1",
-      status: "Menunggu",
-      check: "Dokumen-A",
-    },
-    {
-      id: "945847",
-      date: "15 Juli 2024",
-      sender: "Beni",
-      document: "Dokumen-B",
-      type: "Keperluan-2",
-      status: "Menunggu",
-      check: "Dokumen-B",
-    },
-    {
-      id: "027374",
-      date: "16 Juli 2024",
-      sender: "Lina",
-      document: "Dokumen-C",
-      type: "Keperluan-3",
-      status: "Menunggu",
-      check: "Dokumen-C",
-    },
-    {
-      id: "974543",
-      date: "17 Juli 2024",
-      sender: "Azhar",
-      document: "Dokumen-D",
-      type: "Keperluan-4",
-      status: "Menunggu",
-      check: "Dokumen-D",
-    },
-    {
-      id: "023824",
-      date: "20 Juli 2024",
-      sender: "Beddy",
-      document: "Dokumen-E",
-      type: "Keperluan-5",
-      status: "Menunggu",
-      check: "Dokumen-E",
-    },
-  ];
-
+const MDashboardTable = ({ onCheckClick }) => {
   const getStatusLabel = (status) => {
     switch (status) {
       case "Selesai":
@@ -61,6 +14,13 @@ const MDashboardTable = () => {
         return "";
     }
   };
+
+  const filterData = (data) => {
+    return data.filter(row => row.status === "Menunggu").slice(0,5)
+  }
+
+  // Filter data menggunakan fungsi filterData
+  const filteredData = filterData(tableData);
 
   return (
     <div className="table__cards mx-36 mt-1 p-6 bg-white shadow-lg rounded-lg">
@@ -89,16 +49,16 @@ const MDashboardTable = () => {
               <th className="w-[360px] text-left py-3 px-2 border border-gray-100">
                 Jenis Keperluan
               </th>
-              <th className="w-[180px] text-left py-3 px-2 border border-gray-100">
+              <th className="w-[150px] text-left py-3 px-2 border border-gray-100">
                 Status
               </th>
-              <th className="w-[180px] text-left py-3 px-2 border border-gray-100">
+              <th className="w-[220px] text-left py-3 px-2 border border-gray-100">
                 Lihat
               </th>
             </tr>
           </thead>
           <tbody>
-            {tableData.map((row, index) => (
+            {filteredData.map((row, index) => (
               <tr key={index}>
                 <td className="border border-gray-100 flex items-center gap-2 py-3 px-2 font-semibold">
                   <svg
@@ -127,7 +87,7 @@ const MDashboardTable = () => {
                   {row.sender}
                 </td>
                 <td className="py-2 px-2 border-gray-100 border">
-                  {row.document}
+                  {row.title}
                 </td>
                 <td className="py-2 px-2 border-gray-100 border">{row.type}</td>
                 <td className="py-2 px-2 border-gray-100 border">
@@ -140,7 +100,10 @@ const MDashboardTable = () => {
                   </span>
                 </td>
                 <td className="border border-gray-100 py-3 px-2 text-blue-700">
-                  <button className="flex items-center gap-2">
+                  <button
+                    className="flex items-center gap-2"
+                    onClick={() => onCheckClick(row.id)}
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
@@ -155,8 +118,7 @@ const MDashboardTable = () => {
                         d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10"
                       />
                     </svg>
-
-                    {row.check}
+                    Tinjau Dokumen
                   </button>
                 </td>
               </tr>
