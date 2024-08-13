@@ -1,6 +1,18 @@
 import React from "react";
+import { useState } from "react";
+import ATambahJenisKeperluan from "./ATambahJenisKeperluan";
 
 const ADokumenComp = () => {
+  const [showNotification, setShowNotification] = useState(false);
+
+  const handleButtonClick = () => {
+    setShowNotification(true);
+  };
+
+  const handleCloseNotification = () => {
+    setShowNotification(false);
+  };
+
   return (
     <div className="dokumen__header flex justify-between mx-36 mt-14">
       <div className="text__status space-y-1">
@@ -19,6 +31,7 @@ const ADokumenComp = () => {
       <div className="status__button">
         <button
           type="button"
+          onClick={handleButtonClick}
           className="self-end flex gap-2 px-10 py-3 mt-16 font-bold transition duration-500 text-base shadow-red-600 drop-shadow-md rounded-2xl border-2 border-red-600 bg-red-600 text-white hover:bg-white hover:text-red-600"
         >
           <svg
@@ -38,6 +51,11 @@ const ADokumenComp = () => {
           Tambah Jenis Keperluan
         </button>
       </div>
+      {showNotification && (
+        <div className="z-10 inset-0 flex fixed items-center justify-center bg-black bg-opacity-50">
+          <ATambahJenisKeperluan onClose={handleCloseNotification} />
+        </div>
+      )}
     </div>
   );
 };

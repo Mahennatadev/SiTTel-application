@@ -66,7 +66,7 @@ const ADokumenTable = () => {
                   <td className="py-2 px-2 border-gray-100 border">
                     {row.date}
                   </td>
-                  <td className="py-2 px-2 border-gray-100 border flex gap-4 items-center justify-center">
+                  <td className="h-[50px] py-2 px-2 border-gray-100 border flex gap-4 items-center justify-center">
                     <button className="text-blue-600">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

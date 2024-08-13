@@ -1,6 +1,18 @@
 import React from "react";
+import { useState } from "react";
+import ATambahPenggunaModal from "./ATambahPenggunaModal";
 
 const APenggunaComp = () => {
+  const [showNotification, setShowNotification] = useState(false);
+  
+  const handleButtonClick = () => {
+    setShowNotification(true);
+  };
+
+  const handleCloseNotification = () => {
+    setShowNotification(false);
+  };
+
   return (
     <div className="pengguna__header flex justify-between mx-36 mt-14">
       <div className="text__status space-y-1">
@@ -18,6 +30,7 @@ const APenggunaComp = () => {
       <div className="status__button">
         <button
           type="button"
+          onClick={handleButtonClick}
           className="flex gap-2 self-end px-10 py-3 mt-16 font-bold transition duration-500 text-base shadow-red-600 drop-shadow-md rounded-2xl border-2 border-red-600 bg-red-600 text-white hover:bg-white hover:text-red-600"
         >
           <svg
@@ -37,6 +50,12 @@ const APenggunaComp = () => {
           Tambah Pengguna Baru
         </button>
       </div>
+
+      {showNotification && (
+        <div className="z-10 inset-0 flex fixed items-center justify-center bg-black bg-opacity-50">
+          <ATambahPenggunaModal onClose={handleCloseNotification} />
+        </div>
+      )}
     </div>
   );
 };
