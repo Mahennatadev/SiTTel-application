@@ -1,14 +1,15 @@
+import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import Logo from "../Assets/Logo.png";
-import React from "react";
 import Profile from "../Assets/Profile.png";
 
-const KNavbar = () => {
+const ANavbar = () => {
   const avatarDropdownRef = useRef(null);
   const notificationDropdownRef = useRef(null);
   const [isAvatarDropdownOpen, setIsAvatarDropdownOpen] = useState(false);
-  const [isNotificationDropdownOpen, setIsNotificationDropdownOpen] = useState(false);
+  const [isNotificationDropdownOpen, setIsNotificationDropdownOpen] =
+    useState(false);
   const navigate = useNavigate();
   const goToDashboard = useNavigate();
   const goToLogin = useNavigate();
@@ -17,12 +18,13 @@ const KNavbar = () => {
   const nav = useNavigate();
 
   const goToRiwayat = () => {
-    nav('/karyawanRiwayat'); // Ganti dengan path halaman yang diinginkan
+    nav("/karyawanRiwayat"); // Ganti dengan path halaman yang diinginkan
   };
+
   const navItems = [
-    { name: "Unggah", path: "/karyawanUnggah" },
-    { name: "Status", path: "/karyawanStatus" },
-    { name: "Riwayat", path: "/karyawanRiwayat" },
+    { name: "Pengguna", path: "/" },
+    { name: "Dokumen", path: "/" },
+    { name: "Riwayat", path: "/" },
   ];
 
   const toggleAvatarDropdown = () => {
@@ -58,7 +60,10 @@ const KNavbar = () => {
   return (
     <header className="mt-7 mx-36 gap-5 flex justify-between items-center self-stretch max-md:flex-wrap max-md:max-w-full max-sm:max-w-full max-sm:mx-5">
       <div className="dashboard__logo flex items-center self-stretch p-2 w-[299px]">
-        <button type="button" onClick={() => goToDashboard("/karyawanDashboard")}>
+        <button
+          type="button"
+          onClick={() => goToDashboard("/adminDashboard")}
+        >
           <img src={Logo} alt="Company Logo" className="w-[138px] h-[40px]" />
         </button>
       </div>
@@ -137,7 +142,10 @@ const KNavbar = () => {
               </div>
 
               {/* Notification-Two */}
-              <div className="notification__menu px-4 py-4 flex items-start rounded-b-2xl gap-6 transition duration-300 border-transparent bg-white hover:bg-gray-300 cursor-pointer" onClick={goToRiwayat}>
+              <div
+                className="notification__menu px-4 py-4 flex items-start rounded-b-2xl gap-6 transition duration-300 border-transparent bg-white hover:bg-gray-300 cursor-pointer"
+                onClick={goToRiwayat}
+              >
                 <div className="notification__avatar flex-shrink-0 rounded-full border border-gray-300 w-10 h-10 bg-transparent overflow-hidden">
                   <img
                     className="object-cover w-full h-full"
@@ -148,10 +156,10 @@ const KNavbar = () => {
 
                 <div className="flex flex-col space-y-4">
                   <p className="notification__description text-black font-normal text-sm overflow-hidden break-words">
-                    Dokumen yang anda ajukan dengan judul "Dokumen Laporan Keuangan Perusahaan" telah disetujui
+                    Anda telah berhasil menambahkan jenis keperluan dokumen
                   </p>
                   <p className="notification__time text-blue-600 font-normal text-xs">
-                    Sabtu, 3 Agustus pukul 17.00 WIB
+                    Senin, 5 Agustus pukul 08.00 WIB
                   </p>
                 </div>
               </div>
@@ -161,7 +169,7 @@ const KNavbar = () => {
 
         <div className="greetings__name flex-auto self-stretch my-auto">
           <p className="text-lg font-bold leading-none text-black">
-            Welcome, Mrs. Rina
+            Welcome, Mr. Eko
           </p>
         </div>
 
@@ -220,4 +228,4 @@ const KNavbar = () => {
   );
 };
 
-export default KNavbar;
+export default ANavbar;
