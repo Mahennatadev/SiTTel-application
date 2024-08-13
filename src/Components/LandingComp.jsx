@@ -15,8 +15,8 @@ const LandingComp = () => {
           Efisien dan Terpantau
         </h2>
 
-        <p className="landing__description mt-4 text-lg font-semibold px-64 text-center text-black max-md:max-w-full">
-          "Aplikasi Manajemen Tanda Tangan Dokumen Mempermudah Pengajuan dan
+        <p className="landing__description mt-4 text-lg font-semibold text-center text-black max-md:max-w-full">
+          "Aplikasi Manajemen Tanda Tangan Dokumen Mempermudah Pengajuan <br/>dan
           Persetujuan Dokumen Secara Digital, Mengatasi Kendala Jarak dan Waktu,
           serta Memastikan Proses yang Cepat dan Aman."
         </p>
