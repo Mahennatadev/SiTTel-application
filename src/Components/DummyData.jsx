@@ -386,3 +386,181 @@ export const tableData = [
     check: "Dokumen-J",
   },
 ];
+
+// Admin
+export const tableAdminDataPengguna = [
+  {
+    name: "Akmal Sidki razaka",
+    email: "sidkirazaka@gmail.com",
+    role: "Manajer bag. A",
+    status: "Aktif",
+  },
+  {
+    name: "M. Dzakiyuddin Haidar",
+    email: "haidar@gmail.com",
+    role: "Manajer bag. B",
+    status: "Aktif",
+  },
+  {
+    name: "Brilliant Jordan",
+    email: "jordan@gmail.com",
+    role: "Manajer bag. D",
+    status: "Aktif",
+  },
+  {
+    name: "Tio Adji Hidayat",
+    email: "tioadji@gmail.com",
+    role: "Manajer bag. C",
+    status: "Nonaktif",
+  },
+  {
+    name: "Wahyu Nata Mahendra",
+    email: "wahyunatamahendra@gmail.com",
+    role: "Manajer bag. E",
+    status: "Aktif",
+  },
+  {
+    name: "M. Dzakiyuddin Haidar",
+    email: "haidar@gmail.com",
+    role: "Manajer bag. B",
+    status: "Aktif",
+  },
+  {
+    name: "Brilliant Jordan",
+    email: "jordan@gmail.com",
+    role: "Manajer bag. D",
+    status: "Aktif",
+  },
+  {
+    name: "Tio Adji Hidayat",
+    email: "tioadji@gmail.com",
+    role: "Manajer bag. C",
+    status: "Nonaktif",
+  },
+  {
+    name: "Wahyu Nata Mahendra",
+    email: "wahyunatamahendra@gmail.com",
+    role: "Manajer bag. E",
+    status: "Aktif",
+  },
+];
+
+export const tableAdminKeperluanDokumen = [
+  {
+    id: "173827",
+    title: "Laporan Pengajuan Cuti",
+    date: "1 Agustus 2024",
+  },
+  {
+    id: "498656",
+    title: "Laporan Keuangan Perusahaan",
+    date: "3 Agustus 2024",
+  },
+  {
+    id: "869566",
+    title: "Laporan Audit",
+    date: "4 Agustus 2024",
+  },
+  {
+    id: "217292",
+    title: "Laporan Peminjaman Barang",
+    date: "8 Agustus 2024",
+  },
+  {
+    id: "237923",
+    title: "Laporan Perkembangan Perusahaan",
+    date: "13 Agustus 2024",
+  },
+  {
+    id: "173827",
+    title: "Laporan Pengajuan Cuti",
+    date: "1 Agustus 2024",
+  },
+  {
+    id: "498656",
+    title: "Laporan Keuangan Perusahaan",
+    date: "3 Agustus 2024",
+  },
+  {
+    id: "869566",
+    title: "Laporan Audit",
+    date: "4 Agustus 2024",
+  },
+  {
+    id: "217292",
+    title: "Laporan Peminjaman Barang",
+    date: "8 Agustus 2024",
+  },
+  {
+    id: "237923",
+    title: "Laporan Perkembangan Perusahaan",
+    date: "13 Agustus 2024",
+  },
+];
+
+export const tableAdminDataRiwayat = [
+  {
+    id: "235713",
+    sender: "Wahyu Nata Mahendra",
+    date: "1 Agustus 2024",
+    title: "Dokumen Rencana Pengembangan Aplikasi",
+    receiver: "Erwin",
+    status: "Selesai",
+  },
+  {
+    id: "236486",
+    sender: "M. Dzakiyuddin Haidar",
+    date: "4 Agustus 2024",
+    title: "Laporan Pengajuan Cuti",
+    receiver: "Eko",
+    status: "Diproses",
+  },
+  {
+    id: "368432",
+    sender: "Wahyu Nata Mahendra",
+    date: "8 Agustus 2024",
+    title: "Dokumen Anggaran Pengembangan Aplikasi",
+    receiver: "Eddy",
+    status: "Diproses",
+  },
+  {
+    id: "234323",
+    sender: "Brilliant Jordan",
+    date: "9 Agustus 2024",
+    title: "Dokumen Peminjaman Kendaraan Perusahaan",
+    receiver: "Erwin",
+    status: "Diproses",
+  },
+  {
+    id: "235713",
+    sender: "Wahyu Nata Mahendra",
+    date: "9 Agustus 2024",
+    title: "Dokumen Rencana Pengembangan Aplikasi",
+    receiver: "Erwin",
+    status: "Selesai",
+  },
+  {
+    id: "236486",
+    sender: "M. Dzakiyuddin Haidar",
+    date: "10 Agustus 2024",
+    title: "Laporan Pengajuan Cuti",
+    receiver: "Eko",
+    status: "Diproses",
+  },
+  {
+    id: "368432",
+    sender: "Wahyu Nata Mahendra",
+    date: "12 Agustus 2024",
+    title: "Dokumen Anggaran Pengembangan Aplikasi",
+    receiver: "Eddy",
+    status: "Diproses",
+  },
+  {
+    id: "234323",
+    sender: "Brilliant Jordan",
+    date: "13 Agustus 2024",
+    title: "Dokumen Peminjaman Kendaraan Perusahaan",
+    receiver: "Erwin",
+    status: "Ditolak",
+  },
+];

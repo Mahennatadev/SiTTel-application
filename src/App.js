@@ -16,6 +16,9 @@ import MTinjauDokumen from './Components/MTinjauDokumen';
 import ReviewDocumentPage from './Components/ReviewDocumentPage';
 import MCompleteTandatangani from './Components/MCompleteTandatangani';
 import AdminDashboard from './Pages/AdminDashboard';
+import AdminPengguna from './Pages/AdminPengguna';
+import AdminDokumen from './Pages/AdminDokumen';
+import AdminRiwayat from './Pages/AdminRiwayat';
 
 
 function App() {
@@ -37,6 +40,9 @@ function App() {
         <Route path='/review-document' element={<ReviewDocumentPage />} />
         <Route path='/review-succes-document' element={<MCompleteTandatangani />} />
         <Route path='/adminDashboard' element={<AdminDashboard />} />
+        <Route path='/adminPengguna' element={<AdminPengguna />} />
+        <Route path='/adminDokumen' element={<AdminDokumen />} />
+        <Route path='/adminRiwayat' element={<AdminRiwayat />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>

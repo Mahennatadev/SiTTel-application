@@ -18,13 +18,13 @@ const ANavbar = () => {
   const nav = useNavigate();
 
   const goToRiwayat = () => {
-    nav("/karyawanRiwayat"); // Ganti dengan path halaman yang diinginkan
+    nav("/adminDokumen"); // Ganti dengan path halaman yang diinginkan
   };
 
   const navItems = [
-    { name: "Pengguna", path: "/" },
-    { name: "Dokumen", path: "/" },
-    { name: "Riwayat", path: "/" },
+    { name: "Pengguna", path: "/adminPengguna" },
+    { name: "Dokumen", path: "/adminDokumen" },
+    { name: "Riwayat", path: "/adminRiwayat" },
   ];
 
   const toggleAvatarDropdown = () => {
