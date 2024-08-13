@@ -1,9 +1,11 @@
 import React from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { tableAdminDataRiwayat } from "./DummyData";
 import ARiwayatPagination from "./ARiwayatPagination";
 
 const ARiwayatTable = () => {
+  const goToReview = useNavigate();
 //   const [showNotification, setShowNotification] = useState(false);
 //   const [status, setStatus] = useState(null); // "sukses" or "gagal"
 
@@ -126,6 +128,7 @@ const ARiwayatTable = () => {
                   <td className="border border-gray-100 py-3 px-2 text-blue-700">
                     <button
                       className="flex items-center gap-2"
+                      onClick={() => goToReview('/adminReviewDoc')}
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"

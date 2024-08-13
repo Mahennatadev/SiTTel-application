@@ -19,6 +19,7 @@ import AdminDashboard from './Pages/AdminDashboard';
 import AdminPengguna from './Pages/AdminPengguna';
 import AdminDokumen from './Pages/AdminDokumen';
 import AdminRiwayat from './Pages/AdminRiwayat';
+import AReviewDocComp from './Components/AReviewDocComp';
 
 
 function App() {
@@ -43,6 +44,7 @@ function App() {
         <Route path='/adminPengguna' element={<AdminPengguna />} />
         <Route path='/adminDokumen' element={<AdminDokumen />} />
         <Route path='/adminRiwayat' element={<AdminRiwayat />} />
+        <Route path='/adminReviewDoc' element={<AReviewDocComp />} />
         <Route path='*' element={<NotFound />} />
       </Routes>
     </Router>
