@@ -6,25 +6,25 @@ const LandingComp = () => {
 
   return (
     <section className="landing section" id="landing">
-      <main className="landing__container flex flex-col items-center mt-28 mx-36 max-md:mt-10 max-md:max-w-full">
-        <h1 className="landing__title text-6xl font-black text-center text-black uppercase max-md:max-w-full max-md:text-4xl">
+      <main className="landing__container flex flex-col items-center mt-28 mx-36 max-lg:mx-20 max-md:mx-10 max-md:mt-10">
+        <h1 className="landing__title text-6xl font-black text-center text-black uppercase max-lg:text-5xl max-md:text-4xl">
           Digitalisasi Tanda Tangan
         </h1>
 
-        <h2 className="landing__subtitle mt-4 text-5xl font-medium text-center text-red-600 max-md:max-w-full max-md:text-4xl">
+        <h2 className="landing__subtitle mt-4 text-5xl font-medium text-center text-red-600 max-lg:text-4xl max-md:text-3xl">
           Efisien dan Terpantau
         </h2>
 
-        <p className="landing__description mt-4 text-lg font-semibold text-center text-black max-md:max-w-full">
-          "Aplikasi Manajemen Tanda Tangan Dokumen Mempermudah Pengajuan <br/>dan
-          Persetujuan Dokumen Secara Digital, Mengatasi Kendala Jarak dan Waktu,
-          serta Memastikan Proses yang Cepat dan Aman."
+        <p className="landing__description mt-4 text-lg font-semibold text-center text-black max-lg:text-base max-md:text-sm">
+          "Aplikasi Manajemen Tanda Tangan Dokumen Mempermudah Pengajuan <br />
+          dan Persetujuan Dokumen Secara Digital, Mengatasi Kendala Jarak dan
+          Waktu, serta Memastikan Proses yang Cepat dan Aman."
         </p>
 
         <button
           type="button"
           onClick={() => goToLogin("/login")}
-          className="landing__button transition duration-500 px-16 py-5 mt-16 max-w-full text-2xl font-bold text-red-600 whitespace-nowrap bg-white rounded-3xl border-2 border-red-600 w-[324px] hover:bg-red-600 hover:text-white transform hover:-translate-y-1 hover:scale-110 active:bg-red-500 max-md:px-5 max-md:mt-10"
+          className="landing__button transition duration-500 px-16 py-5 mt-16 text-2xl font-bold text-red-600 bg-white rounded-3xl border-2 border-red-600 w-[324px] hover:bg-red-600 hover:text-white active:bg-red-500 max-lg:px-10 max-lg:text-xl max-md:px-5 max-md:text-lg max-md:mt-10"
         >
           Mulai
         </button>

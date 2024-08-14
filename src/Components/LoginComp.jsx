@@ -22,10 +22,11 @@ const LoginComp = () => {
     // Tambahkan logika untuk menangani form submission
     console.log("Email:", email, "Password:", password);
   };
+
   return (
     <section className="login section" id="login">
-      <div className="login__container container mx-auto grid grid-cols-2 gap-4">
-        <div className="login__illustrations flex items-center h-screen">
+      <div className="login__container container mx-auto grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div className="login__illustrations hidden lg:flex items-center h-screen">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             data-name="Layer 1"
@@ -139,7 +140,7 @@ const LoginComp = () => {
           </svg>
         </div>
 
-        <div className="login__text mt-8">
+        <div className="login__text mt-8 px-4 lg:px-8 xl:px-16">
           <div className="back__button">
             <button
               type="button"
@@ -166,10 +167,10 @@ const LoginComp = () => {
           </div>
 
           <div className="login__header mt-10">
-            <p className="login__title text-5xl pb-5 font-black flex justify-center">
+            <p className="login__title text-4xl lg:text-5xl pb-5 font-black flex justify-center">
               Selamat Datang
             </p>
-            <p className="login__title text-5xl pb-5 font-black flex justify-center">
+            <p className="login__title text-4xl lg:text-5xl pb-5 font-black flex justify-center">
               di SiTTel
             </p>
             <p className="login__caption text-gray-500 flex justify-center">
@@ -179,7 +180,7 @@ const LoginComp = () => {
 
           <form
             onSubmit={handleSubmit}
-            className="mx-auto pt-16 mb-0 max-w-lg space-y-4"
+            className="mx-auto pt-16 mb-0 max-w-md lg:max-w-lg space-y-4"
           >
             <div className="form__email">
               <label htmlFor="email" className="sr-only">
@@ -199,7 +200,7 @@ const LoginComp = () => {
                   required
                 />
 
-                <span class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white text-xs p-2 text-gray-400 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-xs">
+                <span className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white text-xs p-2 text-gray-400 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-xs">
                   Alamat Email
                 </span>
               </div>
@@ -222,7 +223,7 @@ const LoginComp = () => {
                   required
                 />
 
-                <span class="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white text-xs p-2 text-gray-400 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-xs">
+                <span className="pointer-events-none absolute start-2.5 top-0 -translate-y-1/2 bg-white text-xs p-2 text-gray-400 transition-all peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-base peer-focus:top-0 peer-focus:text-xs">
                   Password
                 </span>
 
@@ -277,7 +278,7 @@ const LoginComp = () => {
 
             <div className="button__masuk pt-5">
               <button
-                type="button"
+                type="submit"
                 className="transition duration-500 w-full inline-block text-base shadow-red-600 drop-shadow-md rounded-xl border-2 border-red-600 bg-red-600 p-5 text-white font-bold ease-in-out hover:bg-white hover:text-red-600 transform hover:-translate-y-1 hover:scale-100"
               >
                 Masuk
