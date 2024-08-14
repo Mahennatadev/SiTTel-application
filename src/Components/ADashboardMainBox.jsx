@@ -1,17 +1,45 @@
 import React from "react";
+import { useState, useEffect } from "react";
+import { tableAdminDataRiwayat } from "./DummyData";
 
 const ADashboardMainBox = () => {
+  const [documentCounts, setDocumentCounts] = useState({
+    diproses: 0,
+    selesai: 0,
+    ditolak: 0,
+  });
+
+  useEffect(() => {
+    const countDocumentsByStatus = (data) => {
+      const counts = data.reduce(
+        (acc, row) => {
+          if (row.status === "Diproses") acc.diproses += 1;
+          if (row.status === "Selesai") acc.selesai += 1;
+          if (row.status === "Ditolak") acc.ditolak += 1;
+          return acc;
+        },
+        { diproses: 0, selesai: 0, ditolak: 0 }
+      );
+      return counts;
+    };
+
+    // Menghitung jumlah dokumen dari data dummy
+    const documentCounts = countDocumentsByStatus(tableAdminDataRiwayat);
+    setDocumentCounts(documentCounts);
+  }, []);
+
   return (
     <div className="dashboard__box flex flex-shrink-0 gap-4 place-content-center mt-10 max-md:ml-0 max-md:w-full">
       <div className="box__diproses grid grid-cols-2 transition shadow-xl duration-300 px-7 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
         <div className="box__text space-y-1">
-          <h1 className="box__title text-black font-bold text-2xl">Dokumen <br />Sedang Diproses</h1>
+          <h1 className="box__title text-black font-bold text-2xl">
+            Dokumen <br />
+            Sedang Diproses
+          </h1>
           <p className="box__subtitle text-black text-base font-normal">
             Jumlah Dokumen
           </p>
-          <p className="box__value text-black text-7xl font-normal pt-10">
-            10
-          </p>
+          <p className="box__value text-black text-7xl font-normal pt-10">{documentCounts.diproses}</p>
         </div>
         <div className="box__illustrations flex items-center flex-shrink-0">
           <svg
@@ -233,13 +261,15 @@ const ADashboardMainBox = () => {
 
       <div className="box__selesai grid grid-cols-2 transition shadow-xl duration-300 px-7 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
         <div className="box__text space-y-1">
-          <h1 className="box__title text-black font-bold text-2xl">Dokumen<br />Ditandatangani</h1>
+          <h1 className="box__title text-black font-bold text-2xl">
+            Dokumen
+            <br />
+            Ditandatangani
+          </h1>
           <p className="box__subtitle text-black text-base font-normal">
             Jumlah Dokumen
           </p>
-          <p className="box__value text-black text-7xl font-normal pt-10">
-            5
-          </p>
+          <p className="box__value text-black text-7xl font-normal pt-10">{documentCounts.selesai}</p>
         </div>
         <div className="box__illustrations flex items-center flex-shrink-0">
           <svg
@@ -427,13 +457,15 @@ const ADashboardMainBox = () => {
 
       <div className="box__ditolak grid grid-cols-2 transition shadow-xl duration-300 px-7 py-6 gap-20 hover:shadow-2xl border-2 border-red-600 rounded-xl bg-white hover:-translate-y-0.5 hover:transform cursor-no-drop">
         <div className="box__text space-y-1">
-          <h1 className="box__title text-black font-bold text-2xl">Dokumen<br />Ditolak</h1>
+          <h1 className="box__title text-black font-bold text-2xl">
+            Dokumen
+            <br />
+            Ditolak
+          </h1>
           <p className="box__subtitle text-black text-base font-normal">
             Jumlah Dokumen
           </p>
-          <p className="box__value text-black text-7xl font-normal pt-10">
-            2
-          </p>
+          <p className="box__value text-black text-7xl font-normal pt-10">{documentCounts.ditolak}</p>
         </div>
         <div className="box__illustrations flex items-center flex-shrink-0">
           <svg

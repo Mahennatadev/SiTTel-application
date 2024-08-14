@@ -8,6 +8,10 @@ import { tableKaryawanData } from "./DummyData";
 const KRiwayatTable = ({ row }) => {
   const [showNotification, setShowNotification] = useState(false);
   const [status, setStatus] = useState(null); // "sukses" or "gagal"
+  const [searchQuery, setSearchQuery] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("Semua");
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 5; // Jumlah baris per halaman
 
   const getStatusLabel = (status) => {
     switch (status) {
@@ -24,6 +28,10 @@ const KRiwayatTable = ({ row }) => {
     }
   };
 
+  const handleCategoryChange = (event) => {
+    setSelectedCategory(event.target.value);
+  };
+
   const handleButtonClick = (status) => {
     setStatus(status);
     setShowNotification(true);
@@ -34,22 +42,35 @@ const KRiwayatTable = ({ row }) => {
     setStatus(null);
   };
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 5; // Jumlah baris per halaman
-
   // Filter data hanya untuk status "Diajukan" dan "Diproses"
   const filteredData = tableKaryawanData.filter(
     (row) => row.status === "Selesai" || row.status === "Ditolak"
   );
 
-  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+  // Filter data lebih lanjut berdasarkan kategori yang dipilih
+  const categoryFilteredData = filteredData.filter((row) => {
+    if (selectedCategory === "Semua") {
+      return true;
+    }
+    return row.status === selectedCategory;
+  });
+
+  // Filter data berdasarkan query pencarian
+  const finalFilteredData = categoryFilteredData.filter(
+    (row) =>
+      row.document.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      row.type.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      row.recipient.toLowerCase().includes(searchQuery.toLowerCase())
+  );
+
+  const totalPages = Math.ceil(finalFilteredData.length / rowsPerPage);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
   // Mendapatkan data tabel untuk halaman saat ini
-  const currentTableData = filteredData.slice(
+  const currentTableData = finalFilteredData.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
@@ -58,6 +79,38 @@ const KRiwayatTable = ({ row }) => {
     <div className="mx-36 mt-4">
       <div className="table__cards p-6 bg-white shadow-lg rounded-lg">
         <div className="riwayat__table">
+          <div className="relative mb-4 flex items gap-4">
+            <input
+              type="text"
+              placeholder="Cari berdasarkan judul, jenis keperluan, penerima"
+              className="p-2 pl-10 border-2 rounded-full w-[460px]"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-black"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+            <select
+              value={selectedCategory}
+              onChange={handleCategoryChange}
+              className="appearance-none py-2 px-5 border-2 rounded-full w-48"
+            >
+              <option value="Semua">Semua Status</option>
+              <option value="Selesai">Selesai</option>
+              <option value="Ditolak">Ditolak</option>
+            </select>
+          </div>
           <table className="table-fixed border-collapse border border-gray-100 mt-6 shadow-md">
             <thead className="font-bold text-black">
               <tr>

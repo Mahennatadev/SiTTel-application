@@ -1,10 +1,13 @@
 import { useState } from "react";
 import React from "react";
 import MPermintaanPagination from "./MPermintaanPagination";
-import { tableData } from './DummyData';
-
+import { tableData } from "./DummyData";
 
 const MPermintaanTable = ({ onCheckClick }) => {
+  const [searchQuery, setSearchQuery] = useState("");
+  const [currentPage, setCurrentPage] = useState(1);
+  const rowsPerPage = 10; // Jumlah baris per halaman
+
   const getStatusLabel = (status) => {
     switch (status) {
       case "Selesai":
@@ -18,34 +21,56 @@ const MPermintaanTable = ({ onCheckClick }) => {
     }
   };
 
-  const [currentPage, setCurrentPage] = useState(1);
-  const rowsPerPage = 10; // Jumlah baris per halaman
+  const filteredData = tableData.filter((row) => row.status === "Menunggu");
 
-  const filteredData = tableData.filter(
-    (row) => row.status === "Menunggu"
+  // Filter data berdasarkan query pencarian
+  const finalFilteredData = filteredData.filter(
+    (row) =>
+      row.sender.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      row.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      row.type.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
-  const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+  const totalPages = Math.ceil(finalFilteredData.length / rowsPerPage);
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
   };
 
   // Mendapatkan data tabel untuk halaman saat ini
-  const currentTableData = filteredData.slice(
+  const currentTableData = finalFilteredData.slice(
     (currentPage - 1) * rowsPerPage,
     currentPage * rowsPerPage
   );
-
-  // const handleCheckClick = (id) => {
-  //   goToTinjau(`/manajerTinjauDokumen/${id}`);
-  // };
 
   return (
     <div className="mx-36 mt-4">
       <div className="table__cards p-6 bg-white shadow-lg rounded-lg">
         <div className="permintaan__table">
-          <table className="table-fixed border-collapse border border-gray-100 mt-6 shadow-md">
+          <div className="relative mb-4 flex items gap-4">
+            <input
+              type="text"
+              placeholder="Cari berdasarkan judul, jenis keperluan, pengirim"
+              className="p-2 pl-10 border-2 rounded-full w-[460px]"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+            />
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              strokeWidth={2}
+              stroke="currentColor"
+              className="absolute left-3 top-1/2 transform -translate-y-1/2 h-5 w-5 text-black"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+              />
+            </svg>
+          </div>
+          <table className="table-fixed border-collapse border border-gray-100 mt-4 shadow-md">
             <thead className="font-bold text-black">
               <tr>
                 <th className="w-[160px] text-left py-3 px-2 border border-gray-100">
@@ -118,7 +143,10 @@ const MPermintaanTable = ({ onCheckClick }) => {
                     </span>
                   </td>
                   <td className="border border-gray-100 py-3 px-2 text-blue-700">
-                    <button className="flex items-center gap-2" onClick={() => onCheckClick(row.id)}>
+                    <button
+                      className="flex items-center gap-2"
+                      onClick={() => onCheckClick(row.id)}
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"

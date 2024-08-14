@@ -3,22 +3,6 @@ import React from "react";
 import { tableKaryawanData } from "./DummyData";
 
 const DashboardMainBox = () => {
-  /* const [documentCount, setDocumentCount] = useState(0);
-
-  useEffect(() => {
-    const fetchDocument = async () => {
-      try {
-        const response = await fetch('https://api.example.com/document-count');
-        const data = await response.json();
-        setDocumentCount(data.count);
-      } catch (error) {
-        console.error('Error fetching document count:', error);
-      }
-    };
-
-    fetchDocument();
-  }, []); */
-
   const [documentCounts, setDocumentCounts] = useState({
     diproses: 0,
     selesai: 0,
@@ -44,21 +28,6 @@ const DashboardMainBox = () => {
     const documentCounts = countDocumentsByStatus(tableKaryawanData);
     setDocumentCounts(documentCounts);
   }, []);
-
-  // useEffect(() => {
-  //   // Fungsi untuk fetch data dari dummy data
-  //   const fetchDocumentCounts = async () => {
-  //     try {
-  //       // Simulasi fetch data
-  //       // Pada aplikasi nyata, ganti ini dengan fetch dari API endpoint
-  //       setDocumentCounts(dummyData);
-  //     } catch (error) {
-  //       console.error("Error fetching document counts:", error);
-  //     }
-  //   };
-
-  //   fetchDocumentCounts();
-  // }, []);
 
   return (
     <div className="dashboard__box flex flex-shrink-0 gap-4 place-content-center mt-10 max-md:ml-0 max-md:w-full">
