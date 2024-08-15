@@ -1,5 +1,12 @@
 // Data Dummy
 
+// Data Pengguna
+export const dummyUsers = [
+  { email: "rina@gmail.com", password: "karyawan123", role: "karyawan" },
+  { email: "nata@gmail.com", password: "manajer123", role: "manajer" },
+  { email: "eko@gmail.com", password: "adminn123", role: "admin" },
+];
+
 // Karyawan
 export const tableKaryawanData = [
   {

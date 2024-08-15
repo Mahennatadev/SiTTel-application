@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { dummyUsers } from "./DummyData";
 
 const LoginComp = () => {
   const goToLanding = useNavigate();
@@ -19,8 +20,23 @@ const LoginComp = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Tambahkan logika untuk menangani form submission
-    console.log("Email:", email, "Password:", password);
+
+    const user = dummyUsers.find(
+      (user) => user.email === email && user.password === password
+    );
+
+    if (user) {
+      if (user.role === "karyawan") {
+        goToLanding("/karyawanDashboard");
+      } else if (user.role === "manajer") {
+        goToLanding("/manajerDashboard");
+      } else if (user.role === "admin") {
+        goToLanding("/adminDashboard");
+      }
+    } else {
+      console.log("Invalid credentials");
+      // Add logic to show an error message to the user
+    }
   };
 
   return (
