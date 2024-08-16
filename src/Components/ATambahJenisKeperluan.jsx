@@ -1,9 +1,11 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
 const ATambahJenisKeperluan = ({ onClose }) => {
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
+  const goToDokumen = useNavigate();
+  // const handleSubmit = (event) => {
+  //   event.preventDefault();
+  // };
   return (
     <div className="pengguna__addModal border-transparent bg-white rounded-2xl p-8">
       <div className="grid grid-cols-2">
@@ -17,7 +19,7 @@ const ATambahJenisKeperluan = ({ onClose }) => {
           </p>
 
           <div className="add__form mt-8">
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form action="#" className="space-y-4">
               <div className="form__jenisKeperluan">
                 <label htmlFor="doc-type" className="sr-only">
                   {" "}
@@ -40,6 +42,7 @@ const ATambahJenisKeperluan = ({ onClose }) => {
               <div className="submit__button">
                 <button
                   type="submit"
+                  onClick={() => goToDokumen('/adminDokumen')}
                   className="transition duration-500 py-3 px-7 text-base shadow-red-600 drop-shadow-md rounded-xl border-2 border-red-600 bg-red-600 text-white font-bold hover:bg-white hover:text-red-600"
                 >
                   Simpan

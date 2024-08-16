@@ -410,56 +410,65 @@ export const tableAdminDataPengguna = [
   {
     name: "Akmal Sidki razaka",
     email: "sidkirazaka@gmail.com",
-    role: "Manajer bag. A",
+    role: "Manajer",
     status: "Aktif",
+    divisi: "Manajemen"
   },
   {
     name: "M. Dzakiyuddin Haidar",
     email: "haidar@gmail.com",
-    role: "Manajer bag. B",
+    role: "Manajer",
     status: "Aktif",
+    divisi: "IT"
   },
   {
     name: "Brilliant Jordan",
     email: "jordan@gmail.com",
-    role: "Manajer bag. D",
+    role: "Manajer",
     status: "Aktif",
+    divisi: "Finance"
   },
   {
     name: "Tio Adji Hidayat",
     email: "tioadji@gmail.com",
-    role: "Manajer bag. C",
+    role: "Karyawan",
     status: "Nonaktif",
+    divisi: "Marketing"
   },
   {
     name: "Wahyu Nata Mahendra",
     email: "wahyunatamahendra@gmail.com",
-    role: "Manajer bag. E",
+    role: "Karyawan",
     status: "Aktif",
+    divisi: "Developer"
   },
   {
     name: "M. Dzakiyuddin Haidar",
     email: "haidar@gmail.com",
-    role: "Manajer bag. B",
+    role: "Manajer",
     status: "Aktif",
+    divisi: "HRD"
   },
   {
     name: "Brilliant Jordan",
     email: "jordan@gmail.com",
-    role: "Manajer bag. D",
+    role: "Karyawan",
     status: "Aktif",
+    divisi: "Humas"
   },
   {
     name: "Tio Adji Hidayat",
     email: "tioadji@gmail.com",
-    role: "Manajer bag. C",
+    role: "Manajer",
     status: "Nonaktif",
+    divisi: "QA"
   },
   {
     name: "Wahyu Nata Mahendra",
     email: "wahyunatamahendra@gmail.com",
-    role: "Manajer bag. E",
+    role: "Manajer",
     status: "Aktif",
+    divisi: "IT Support"
   },
 ];
 

@@ -104,6 +104,9 @@ const APenggunaTable = () => {
                 <th className="w-[360px] text-left py-3 px-2 border border-gray-100">
                   Role Pengguna
                 </th>
+                <th className="w-[360px] text-left py-3 px-2 border border-gray-100">
+                  Divisi/Unit
+                </th>
                 <th className="w-[180px] text-left py-3 px-2 border border-gray-100">
                   Status
                 </th>
@@ -137,6 +140,9 @@ const APenggunaTable = () => {
                   </td>
                   <td className="py-2 px-2 border-gray-100 border">
                     {row.role}
+                  </td>
+                  <td className="py-2 px-2 border-gray-100 border">
+                    {row.divisi}
                   </td>
                   <td className="py-2 px-2 border-gray-100 border">
                     <span
